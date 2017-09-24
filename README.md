@@ -212,11 +212,11 @@ g = v3 / |v|
 
 where mu_x and mu_y are the continuous dwells of neighbouring pixels to
 the above and left of the pixel under consideration, and $s > 0$ is a parameter
-that controls the strength of the effect.  
+that controls the strength of the effect. 
 ```
 0 <= g <= 1 
 ```
-colours the boundary of the set where iteration count goes up increasingly quickly.  
+colours the boundary of the set where iteration count goes up increasingly quickly. 
 Define mu to be large and negative for pixels that didn't escape.
 
 @CHAFakeDE also describes using 
@@ -255,18 +255,26 @@ double _Complex m_dwell_gradient(int N, double R, double s, double d, double _Co
 Formalizes the dwell gradient idea, in that closeness of dwell bands is related
 to closeness to the boundary of the set.
 
-$$d = 2 \frac{\left|z\right| \log \left|z\right|}
-{\left|\frac{\partial}{\partial c}\right|}$$
 
-No point in the Mandelbrot set is within $\frac{d}{4}$.
-There is a point in the Mandelbrot set within $4 d$ (FIXME check claim).
+```
+d = 2*abs(z)*log|z|/|dz|
+```
+
+where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/demm) 
+
+
+No point in the Mandelbrot set is within d/4.
+There is a point in the Mandelbrot set within 4 d .
 Compare with pixel spacing to know if the Mandelbrot set might intersect a
-pixel.  Colouring using $\tanh$ works well, because $\tanh 4 \approx 1$
+pixel.  Colouring using tanh works well, because tanh 4 ~ 1
 
 A complex-valued distance estimate (with directional information) can be
 calculated by:
 
-$$d = 2 \frac{z \log \left|z\right|}{\frac{\partial}{\partial c}}$$
+```
+d = 2*z*log|z|/dz
+```
+
 
 @CHADistance and @CHACircular use distance estimates to give progressively
 finer approximations to the exterior, while @CHAAdaptiveSS describes an
@@ -387,10 +395,10 @@ $b$, and it turned out that only periods that are "partials" (corresponding to
 atom domains) need be considered:
 
 * For each period p, starting from 1 and increasing:
-  * If $|F^p(0, c)|$ reaches a new minimum:
-    * Find $z_0$ such that $F^p(z_0,c)=z_0$ using Newton's method in one complex variable (["attractor"](#attractor));
-    * Find $b =\frac{\partial}{\partial z} F^p(z_0,c)$;
-    * If $|b| \le 1$ then return $b$, otherwise continue with the next $p$.
+  * If |F^p(0, c)| reaches a new minimum:
+    * Find z_0 such that F^p(z_0,c)=z_0 using Newton's method in one complex variable (["attractor"](#attractor));
+    * Find b =\frac{\partial}{\partial z} F^p(z_0,c)$;
+    * If |b| <= 1 then return b, otherwise continue with the next p.
 
 #### C99 Code
 
@@ -1127,4 +1135,301 @@ $$\left( .\overline{01001}, .\overline{01010} \right)$$
 
 ## Bibliography
 
+@article{Dolotin2008,
+	author="V. {Dolotin} and A. {Morozov}",
+	title="On the shapes of elementary domains or why Mandelbrot Set is made from almost ideal circles?",
+	journal="International Journal of Modern Physics A",
+	volume="Vol. 23, No. 22 (2008) 3613–3684",
+	publisher="World Scientific Publishing Company",
+	date="2008",
+	url="https://arxiv.org/abs/hep-th/0701234v1"
+}
 
+@misc{Vepstas1997,
+  author="Linas Vepstas",
+  title="Renormalizing the Mandelbrot Escape",
+  date="1997",
+  url="http://linas.org/art-gallery/escape/escape.html"
+}
+
+@misc{MSetENotes2013,
+  author="{MSet e-notes}",
+  title="Windows of periodicity scaling",
+  date="2013",
+  url="http://ibiblio.org/e-notes/MSet/windows.htm"
+}
+
+
+
+@misc{CHANotebook,
+  author="Claude Heiland-Allen",
+  title="Mandelbrot notebook",
+  date="2014-03-06",
+  url="https://mathr.co.uk/blog/2014-03-06_mandelbrot_notebook.html"
+}
+
+@misc{CHADistance,
+  author="Claude Heiland-Allen",
+  title="Distance estimation",
+  date="2010-10-30",
+  url="https://mathr.co.uk/blog/2010-10-30_distance_estimation.html"
+}
+
+@misc{CHACircular,
+  author="Claude Heiland-Allen",
+  title="Circular wavefronts",
+  date="2010-11-02",
+  url="https://mathr.co.uk/blog/2010-11-02_circular_wavefronts.html"
+}
+
+@misc{CHALavaurs,
+  author="Claude Heiland-Allen",
+  title="Lavaurs' Algorithm",
+  date="2010-11-13",
+  url="https://mathr.co.uk/blog/2010-11-13_lavaurs_algorithm.html"
+}
+
+@misc{CHAAbstractTree,
+  author="Claude Heiland-Allen",
+  title="Abstract Mandelbrot tree",
+  date="2010-11-24",
+  url="https://mathr.co.uk/blog/2010-11-24_abstract_mandelbrot_tree.html"
+}
+
+@misc{CHAExpoMap,
+  author="Claude Heiland-Allen",
+  title="Exponential mapping and {OpenMP}",
+  date="2010-12-06",
+  url="https://mathr.co.uk/blog/2010-12-06_exponential_mapping_and_openmp.html"
+}
+
+@misc{CHAModified,
+  author="Claude Heiland-Allen",
+  title="Modified Atom Domains",
+  date="2012-12-25",
+  url="https://mathr.co.uk/blog/2012-12-25_modified_atom_domains.html"
+}
+
+@misc{CHADancing,
+  author="Claude Heiland-Allen",
+  title="Dancing Angels",
+  date="2012-12-25",
+  url="https://mathr.co.uk/blog/2012-12-25_dancing_angels.html"
+}
+
+@misc{CHABasins,
+  author="Claude Heiland-Allen",
+  title="Mandelbrot set Newton basins",
+  date="2012-12-25",
+  url="https://mathr.co.uk/blog/2012-12-25_mandelbrot_set_newton_basins.html"
+}
+
+@misc{CHAPreBasins,
+  author="Claude Heiland-Allen",
+  title="Preperiodic Mandelbrot set Newton basins",
+  date="2013-01-29",
+  url="https://mathr.co.uk/blog/2013-01-29_preperiodic_mandelbrot_set_newton_basins.html"
+}
+
+@misc{CHANavSpokes,
+  author="Claude Heiland-Allen",
+  title="Navigating by spokes in the Mandelbrot set",
+  date="2013-02-01",
+  url="https://mathr.co.uk/blog/2013-02-01_navigating_by_spokes_in_the_mandelbrot_set.html"
+}
+
+@misc{CHAInteriorCoords,
+  author="Claude Heiland-Allen",
+  title="Interior coordinates in the Mandelbrot set",
+  date="2013-04-01",
+  url="https://mathr.co.uk/blog/2013-04-01_interior_coordinates_in_the_mandelbrot_set.html"
+}
+
+@misc{CHAPerPatterns,
+  author="Claude Heiland-Allen",
+  title="Patterns of periods in the Mandelbrot set",
+  date="2013-06-23",
+  url="https://mathr.co.uk/blog/2013-06-23_patterns_of_periods_in_the_mandelbrot_set.html"
+}
+
+@misc{CHAHairIslands,
+  author="Claude Heiland-Allen",
+  title="Islands in the hairs",
+  date="2013-10-02",
+  url="https://mathr.co.uk/blog/2013-10-02_islands_in_the_hairs.html"
+}
+
+@misc{CHADomainSize,
+  author="Claude Heiland-Allen",
+  title="Atom domain size estimation",
+  date="2013-12-10",
+  url="https://mathr.co.uk/blog/2013-12-10_atom_domain_size_estimation.html"
+}
+
+@misc{CHAStretching,
+  author="Claude Heiland-Allen",
+  title="Stretching cusps",
+  date="2013-12-16",
+  url="https://mathr.co.uk/blog/2013-12-16_stretching_cusps.html"
+}
+
+@misc{CHAAntiBuddha,
+  author="Claude Heiland-Allen",
+  title="Ultimate Anti-Buddhabrot",
+  date="2013-12-30",
+  url="https://mathr.co.uk/blog/2013-12-30_ultimate_anti-buddhabrot.html"
+}
+
+@misc{CHANotebook,
+  author="Claude Heiland-Allen",
+  title="Mandelbrot Notebook",
+  date="2014-03-06",
+  url="https://mathr.co.uk/blog/2014-03-06_mandelbrot_notebook.html"
+}
+
+@misc{CHAGlitches,
+  author="Claude Heiland-Allen",
+  title="Perturbation glitches",
+  date="2014-03-31",
+  url="https://mathr.co.uk/blog/2014-03-31_perturbation_glitches.html"
+}
+
+@misc{CHASpiders,
+  author="Claude Heiland-Allen",
+  title="Resurrecting Spiders",
+  date="2014-10-30",
+  url="https://mathr.co.uk/blog/2014-10-30_resurrecting_spiders.html"
+}
+
+@misc{CHAInteriorDE,
+  author="Claude Heiland-Allen",
+  title="Practical interior distance rendering",
+  date="2014-11-02",
+  url="https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html"
+}
+
+@misc{CHANavHairs,
+  author="Claude Heiland-Allen",
+  title="Navigating in the hairs",
+  date="2014-11-18",
+  url="https://mathr.co.uk/blog/2014-11-18_navigating_in_the_hairs.html"
+}
+
+@misc{CHAAdaptiveSS,
+  author="Claude Heiland-Allen",
+  title="Adaptive super-sampling using distance estimate",
+  date="2014-11-22",
+  url="https://mathr.co.uk/blog/2014-11-22_adaptive_supersampling_using_distance_estimate.html"
+}
+
+@misc{CHAFakeDE,
+  author="Claude Heiland-Allen",
+  title="Faking distance estimate colouring",
+  date="2014-12-13",
+  url="https://mathr.co.uk/blog/2014-12-13_faking_distance_estimate_colouring.html"
+}
+
+@misc{CHAExpoMapKF,
+  author="Claude Heiland-Allen",
+  title="Exponential mapping with Kalles Fraktaler",
+  date="2014-12-17",
+  url="https://mathr.co.uk/blog/2014-12-17_exponential_mapping_with_kalles_fraktaler.html"
+}
+
+@misc{CHAAutoAngles,
+  author="Claude Heiland-Allen",
+  title="Automatically finding external angles",
+  date="2014-12-20",
+  url="https://mathr.co.uk/blog/2014-12-20_automatically_finding_external_angles.html"
+}
+
+@misc{CHAMisiurewiczAngles,
+  author="Claude Heiland-Allen",
+  title="External angles of Misiurewicz points",
+  date="2015-01-15",
+  url="https://mathr.co.uk/blog/2015-01-15_external_angles_of_misiurewicz_points.html"
+}
+
+@misc{CHAMisiurewiczNewton,
+  author="Claude Heiland-Allen",
+  title="Newton's method for Misiurewicz points",
+  date="2015-01-26",
+  url="https://mathr.co.uk/blog/2015-01-26_newtons_method_for_misiurewicz_points.html"
+}
+
+@misc{CHAMisiurewiczDomains,
+  author="Claude Heiland-Allen",
+  title="Misiurewicz domains",
+  date="2015-02-01",
+  url="https://mathr.co.uk/blog/2015-02-01_misiurewicz_domains.html"
+}
+
+@misc{CHATwoSpirals,
+  author="Claude Heiland-Allen",
+  title="Two spirals out...",
+  date="2015-05-18",
+  url="https://mathr.co.uk/blog/2015-05-18_two_spirals_out.html"
+}
+
+@misc{CHAAutoMorph,
+  author="Claude Heiland-Allen",
+  title="Automated Julia morphing",
+  date="2016-02-25",
+  url="https://mathr.co.uk/blog/2016-02-25_automated_julia_morphing.html"
+}
+
+@misc{CHACodeGen,
+  author="Claude Heiland-Allen",
+  title="Code generation for series approximation",
+  date="2016-02-26",
+  url="https://mathr.co.uk/blog/2016-02-26_code_generation_for_series_approximation.html"
+}
+
+@misc{CHAMorphSym,
+  author="Claude Heiland-Allen",
+  title="Julia morphing symmetry",
+  date="2016-03-05",
+  url="https://mathr.co.uk/blog/2016-03-05_julia_morphing_symmetry.html"
+}
+
+@misc{CHASeriesApprox,
+  author="Claude Heiland-Allen",
+  title="Simpler series approximation",
+  date="2016-03-06",
+  url="https://mathr.co.uk/blog/2016-03-06_simpler_series_approximation.html"
+}
+
+@misc{CHASymbolics,
+  author="Claude Heiland-Allen",
+  title="Mandelbrot symbolics in the browser",
+  date="2016-03-14",
+  url="https://mathr.co.uk/blog/2016-03-14_mandelbrot_symbolics_in_the_browser.html"
+}
+
+@misc{CHAVectorBuddha,
+  author="Claude Heiland-Allen",
+  title="Vector Buddhabrot",
+  date="2016-04-11",
+  url="https://mathr.co.uk/blog/2016-04-11_vector_buddhabrot.html"
+}
+
+@misc{CHAPi,
+  author="Claude Heiland-Allen",
+  title="PI in the Mandelbrot Set",
+  date="2016-04-27",
+  url="https://mathr.co.uk/blog/2016-04-27_pi_in_the_mandelbrot_set.html"
+}
+
+@misc{CHAJuliaDim,
+  author="Claude Heiland-Allen",
+  title="Fractal dimension of Julia sets",
+  date="2016-05-16",
+  url="https://mathr.co.uk/blog/2016-05-16_fractal_dimension_of_julia_sets.html"
+}
+
+@misc{CHAFarey,
+  author="Claude Heiland-Allen",
+  title="Finding parents in the Farey tree",
+  date="2016-10-31",
+  url="https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html"
+}
