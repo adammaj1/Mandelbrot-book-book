@@ -4,7 +4,7 @@ link-citations: true
 ---
 
 fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
-https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/)
+https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
 
 
 
