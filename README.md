@@ -7,7 +7,7 @@ link-citations: true
 
 ### Membership
 
-![Membership rendering](membership.png "Membership rendering")
+![Membership rendering](m.png "Membership rendering")
 
 Colour according to whether the iterations diverge to infinity or not, within a
 fixed maximum number of iterations $N$ and escape radius $R \ge 2$.  The
@@ -35,7 +35,7 @@ bool m_membership(int N, double R, double _Complex c)
 
 ### Escape Time
 
-![Escape time rendering](escape-time.png "Escape time rendering")
+![Escape time rendering](et.png "Escape time rendering")
 
 Colour according to the integer number of iterations $n$ at which
 $$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
@@ -61,7 +61,7 @@ int m_escape_time(int N, double R, double _Complex c)
 
 ### Binary Decomposition
 
-![Binary decomposition rendering](binary-decomposition.png "Binary decomposition rendering")
+![Binary decomposition rendering](bd.png "Binary decomposition rendering")
 
 Colour according to the sign of $\Im z$ (the first escaped iterate).
 Increasing escape radius is
@@ -89,7 +89,7 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 
 ### Continuous Dwell
 
-![Continuous dwell rendering](continuous-dwell.png "Continuous dwell rendering")
+![Continuous dwell rendering](cd.png "Continuous dwell rendering")
 
 @Vepstas1997 derives the renormalized continuous escape time:
 
@@ -127,7 +127,7 @@ double m_continuous_dwell(int N, double R, double _Complex c)
 
 ### Exterior Coordinates
 
-![Exterior coordinates rendering](exterior-coordinates.png "Exterior coordinates rendering")
+![Exterior coordinates rendering](ec.png "Exterior coordinates rendering")
 
 Escape radius around $R = 25^2$ makes the exterior grid cells roughly square.
 The imaginary part of $e$ is linearized to avoid shape distortion.
@@ -165,7 +165,7 @@ double _Complex m_exterior_coordinates(int N, double R, double _Complex c)
 
 ### Dwell Gradient
 
-![Dwell gradient rendering](dwell-gradient.png "Dwell gradient rendering")
+![Dwell gradient rendering](dg.png "Dwell gradient rendering")
 
 $$\begin{aligned}
 v &= \left(\begin{matrix}\mu - \mu_x \\ \mu - \mu_y \\ s\end{matrix}\right) \\
@@ -205,7 +205,7 @@ double _Complex m_dwell_gradient(int N, double R, double s, double d, double _Co
 
 ### Exterior Distance
 
-![Exterior distance rendering](exterior-distance.png "Exterior distance rendering")
+![Exterior distance rendering](ed.png "Exterior distance rendering")
 
 Formalizes the dwell gradient idea, in that closeness of dwell bands is related
 to closeness to the boundary of the set.
@@ -252,7 +252,7 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
 
 ### Atom Domains
 
-![Atom domains rendering](atom-domains.png "Atom domains rendering")
+![Atom domains rendering](ad.png "Atom domains rendering")
 
 Atom domains in the Mandelbrot set are defined as the index $p \ge 1$ at which
 \left|z_p\right| is minimized during iteration of $z_0 = 0$ and
@@ -290,7 +290,7 @@ int m_atom_domains(int N, double R, double _Complex c)
 
 ### Misiurewicz Domains
 
-![Misiurewicz domains rendering](misiurewicz-domains.png "Misiurewicz domains rendering")
+![Misiurewicz domains rendering](md.png "Misiurewicz domains rendering")
 
 Preperiodic points in the Mandelbrot set are called Misiurewicz points, and
 they have repelling orbits (periodic hyperbolic components have attracting
@@ -335,7 +335,7 @@ int m_misiurewicz_domains(int N, int p, double _Complex c)
 
 ### Interior Coordinates
 
-![Interior coordinates rendering](interior-coordinates.png "Interior coordinates rendering")
+![Interior coordinates rendering](ic.png "Interior coordinates rendering")
 
 @CHAInteriorCoords derives an algorithm for calculating interior coordinates
 $b$, and it turned out that only periods that are "partials" (corresponding to
@@ -380,7 +380,7 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 ### Interior Distance
 
-![Interior distance rendering](interior-distance.png "Interior distance rendering")
+![Interior distance rendering](id.png "Interior distance rendering")
 
 The formula for interior distance estimation is:
 
