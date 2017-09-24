@@ -6,12 +6,12 @@ link-citations: true
 fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
 
-##Compare with
+## Compare with
 * [Examples c programs for drawing Mandelbrot set ](https://gitlab.com/adammajewski/mandelbrot_wiki_ACh) as described in [the wiki by A Cheritat](https://www.math.univ-toulouse.fr/~cheritat/wiki-draw/index.php/Mandelbrot_set)
 * [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen ( full repository )](https://code.mathr.co.uk/mandelbrot-book)
 * [clone of mandelbrot-book, use c files not diffs](https://gitlab.com/adammajewski/my-book) and [pdf file](https://gitlab.com/adammajewski/git-book-pdf)
 
-##Programs
+## Programs
 * in c99
 * one file
 * use 
