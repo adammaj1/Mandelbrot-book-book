@@ -69,6 +69,12 @@ $$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
 ```
 $\left|z_n\right| > R \ge \left|z_{n-1}\right|$
 
+$ \sum_{\forall i}{x_i^{2}} $
+
+\begin{equation}
+\sum_{\forall i}{x_i^{2}}
+\end{equation}
+
 #### C99 Code
 
 ~~~~ {.c}
