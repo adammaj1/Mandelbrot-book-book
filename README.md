@@ -34,8 +34,11 @@ Programs create pgm files. To convert to png use Image Magic from console:
 ![Membership rendering](m.png "Membership rendering")
 
 Colour according to whether the iterations diverge to infinity or not, within a
-fixed maximum number of iterations $N$ and escape radius $R \ge 2$.  The
-disconnected specks visible in the image turn out to be copies of the whole, and
+fixed maximum number of iterations N and escape radius R
+```
+ R >= 2
+```
+The disconnected specks visible in the image turn out to be copies of the whole, and
 despite appearances the Mandelbrot set is connected.
 
 #### C99 Code
@@ -68,7 +71,7 @@ Colour according to the integer number of iterations n at which
 where escape radius 
 ```
 R >= 2
-``
+```
 
 
 #### C99 Code
@@ -93,9 +96,12 @@ int m_escape_time(int N, double R, double _Complex c)
 
 ![Binary decomposition rendering](bd.png "Binary decomposition rendering")
 
-Colour according to the sign of $\Im z$ (the first escaped iterate).
+Colour according to the sign of Im(z) (the first escaped iterate).
 Increasing escape radius is
-necessary to align edges between layers.  Escape radius around $R = 25$
+necessary to align edges between layers.  Escape radius around 
+```
+R = 25
+```
 makes the decomposed cells roughly square.
 
 #### C99 Code
@@ -121,10 +127,10 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 
 ![Continuous dwell rendering](cd.png "Continuous dwell rendering")
 
-@Vepstas1997 derives the renormalized continuous escape time:
-
-$$\mu = n + 1 - \log_2 \left( \log \left|z\right| \right)$$
-
+[Vepstas](http://linas.org/art-gallery/escape/escape.html)  derives the renormalized continuous escape time:
+```
+mu = n + 1 - log(log (|z|))/log(2)
+```
 > In the above formula, the value of $\mu$ is almost completely independent of
 > the iteration count, and of the escape radius, despite the fact that the
 > right-hand-side of the equation is explicitly dependent on both of these
