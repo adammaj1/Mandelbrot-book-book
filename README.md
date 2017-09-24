@@ -61,19 +61,13 @@ bool m_membership(int N, double R, double _Complex c)
 
 ![Escape time rendering](et.png "Escape time rendering")
 
-Colour according to the integer number of iterations $n$ at which
-$$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
-where escape radius $R \ge 2$.
-```rawtex 
-$$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
-```
-$\left|z_n\right| > R \ge \left|z_{n-1}\right|$
+Colour according to the integer number of iterations n at which
+  |z_n\ > R >=  z_{n-1}
+where escape 
 
-$ \sum_{\forall i}{x_i^{2}} $
+  radius R >= 2.
 
-\begin{equation}
-\sum_{\forall i}{x_i^{2}}
-\end{equation}
+
 
 #### C99 Code
 
