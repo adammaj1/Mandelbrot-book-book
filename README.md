@@ -62,11 +62,13 @@ bool m_membership(int N, double R, double _Complex c)
 ![Escape time rendering](et.png "Escape time rendering")
 
 Colour according to the integer number of iterations n at which
-  |z_n\ > R >=  z_{n-1}
-where escape 
-
-  radius R >= 2.
-
+```
+  |zn|  > R >=  z(n-1)
+```
+where escape radius 
+```
+R >= 2
+``
 
 
 #### C99 Code
