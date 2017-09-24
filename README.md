@@ -7,7 +7,11 @@ fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude 
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
 
 
+## converting images
 
+````
+  convert *.pgm -geometry 800x800 *.png
+````
 
 ## Graphical Algorithms
 
