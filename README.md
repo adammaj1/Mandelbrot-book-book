@@ -204,19 +204,27 @@ double _Complex m_exterior_coordinates(int N, double R, double _Complex c)
 
 ![Dwell gradient rendering](dg.png "Dwell gradient rendering")
 
-$$\begin{aligned}
-v &= \left(\begin{matrix}\mu - \mu_x \\ \mu - \mu_y \\ s\end{matrix}\right) \\
-g &= \frac{v_3}{\left|v\right|}
-\end{aligned}$$
 
-where $\mu_x$ and $\mu_y$ are the continuous dwells of neighbouring pixels to
+```
+v = (mu - mu_x, mu - mu_y, s)
+g = v3 / |v|
+```
+
+where mu_x and mu_y are the continuous dwells of neighbouring pixels to
 the above and left of the pixel under consideration, and $s > 0$ is a parameter
-that controls the strength of the effect.  $0 \le g \le 1$ colours the boundary
-of the set where iteration count goes up increasingly quickly.  Define $\mu$ to
-be large and negative for pixels that didn't escape.
+that controls the strength of the effect.  
+```
+0 <= g <= 1 
+```
+colours the boundary of the set where iteration count goes up increasingly quickly.  
+Define mu to be large and negative for pixels that didn't escape.
 
-@CHAFakeDE also describes using $\tan^{-1} \frac{v_2}{v_1}$ as hue for a rainbow
-colouring of dwell slope.
+@CHAFakeDE also describes using 
+```
+tan^{-1} v_2/v_1 
+```
+
+as hue for a rainbow colouring of dwell slope.
 
 #### C99 Code
 
