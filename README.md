@@ -131,14 +131,14 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 ```
 mu = n + 1 - log(log (|z|))/log(2)
 ```
-> In the above formula, the value of $\mu$ is almost completely independent of
+> In the above formula, the value of mu is almost completely independent of
 > the iteration count, and of the escape radius, despite the fact that the
 > right-hand-side of the equation is explicitly dependent on both of these
-> quantities. The renormalized iteration count $\mu$ depends only on $c$,
+> quantities. The renormalized iteration count mu depends only on c,
 > and is a piecewise-continuous, differentiable function thereof. By using
 > a different analysis, it can be seen that the renormalized iteration count
-> $\mu$ is in fact the residue remaining when a pole (due to the infinite
-> sum) is removed. That is, the value of $\mu$ closely approximates the
+> mu is in fact the residue remaining when a pole (due to the infinite
+> sum) is removed. That is, the value of mu closely approximates the
 > result of having iterated to infinity, that is, of having an infinite
 > escape radius, and an infinite maximum iteration count.
 
@@ -165,11 +165,12 @@ double m_continuous_dwell(int N, double R, double _Complex c)
 
 ![Exterior coordinates rendering](ec.png "Exterior coordinates rendering")
 
-Escape radius around $R = 25^2$ makes the exterior grid cells roughly square.
-The imaginary part of $e$ is linearized to avoid shape distortion.
-$$\Re e = \frac{\arg z}{2 \pi} \mod 1 \\
-\Im e = 2 - \frac{\log \left|z\right|}{\log R}$$
-
+Escape radius around R = 25^2 makes the exterior grid cells roughly square.
+The imaginary part of e is linearized to avoid shape distortion.
+```
+Re(e) = (arg(z)/2pi) mod 1 
+Im(e) = 2 - log(z) / log R
+```
 The exterior coordinate $e$ can be used to look up pixel colours from an
 image texture, but care must be taken to avoid glitches at the cell boundaries
 if automatic derivatives are used for mipmapped anti-aliasing.  The calculation
