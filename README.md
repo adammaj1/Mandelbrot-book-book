@@ -66,7 +66,7 @@ bool m_membership(int N, double R, double _Complex c)
 
 Colour according to the integer number of iterations n at which
 ```
-  |zn|  > R >=  z(n-1)
+  |zn|  > R >=  |z(n-1)|
 ```
 where escape radius 
 ```
@@ -219,7 +219,7 @@ that controls the strength of the effect.
 colours the boundary of the set where iteration count goes up increasingly quickly. 
 Define mu to be large and negative for pixels that didn't escape.
 
-@CHAFakeDE also describes using 
+[Fake DE](https://mathr.co.uk/blog/2014-12-13_faking_distance_estimate_colouring.html) also describes using 
 ```
 tan^{-1} v_2/v_1 
 ```
@@ -276,8 +276,8 @@ d = 2*z*log|z|/dz
 ```
 
 
-@CHADistance and @CHACircular use distance estimates to give progressively
-finer approximations to the exterior, while @CHAAdaptiveSS describes an
+[Distance estimation](https://mathr.co.uk/blog/2010-10-30_distance_estimation.html)  and [Circular wavefronts](https://mathr.co.uk/blog/2010-11-02_circular_wavefronts.html) use distance estimates to give progressively
+finer approximations to the exterior, while [adaptive super sampling](https://mathr.co.uk/blog/2014-11-22_adaptive_supersampling_using_distance_estimate.html) describes an
 adaptive supersampling method.
 
 #### C99 Code
@@ -397,7 +397,7 @@ atom domains) need be considered:
 * For each period p, starting from 1 and increasing:
   * If |F^p(0, c)| reaches a new minimum:
     * Find z_0 such that F^p(z_0,c)=z_0 using Newton's method in one complex variable (["attractor"](#attractor));
-    * Find b =\frac{\partial}{\partial z} F^p(z_0,c)$;
+    * Find b =dF^p(z_0,c)/dz
     * If |b| <= 1 then return b, otherwise continue with the next p.
 
 #### C99 Code
