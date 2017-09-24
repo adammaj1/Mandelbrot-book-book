@@ -65,7 +65,7 @@ Colour according to the integer number of iterations $n$ at which
 $$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
 where escape radius $R \ge 2$.
 ```tex 
-\left|z_n\right| > R \ge \left|z_{n-1}\right|
+$$\left|z_n\right| > R \ge \left|z_{n-1}\right|$$
 ```
 
 
