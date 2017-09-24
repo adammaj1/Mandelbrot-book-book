@@ -3,6 +3,12 @@ title: Mandelbook
 link-citations: true
 ---
 
+fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
+https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/)
+
+
+
+
 ## Graphical Algorithms
 
 ### Membership
@@ -1081,3 +1087,5 @@ $$\left( .\overline{01001}, .\overline{01010} \right)$$
 @CHASpiders
 
 ## Bibliography
+
+
