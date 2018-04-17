@@ -29,7 +29,7 @@ int main()
   int h = 2000 ; // height in pixels
   int kMax = 1024; // iteration max
   
-  double r = 2; // radius
+  double r = 2; // radius: https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/plane#radius
   
   double r2 = 25 * 25; // escape_radius^2
   
