@@ -24,12 +24,15 @@ gcc binary-decomposition.c -lm -Wall -fopenmp
 
 int main()
 {
-  int aa = 4;
-  int w = 800 * aa;
-  int h = 800 * aa;
-  int n = 1024;
-  double r = 2;
-  double r2 = 25 * 25;
+  //int aa = 4;
+  int w = 2000 ; // width in piels
+  int h = 2000 ; // height in pixels
+  int kMax = 1024; // iteration max
+  
+  double r = 2; // radius
+  
+  double r2 = 25 * 25; // escape_radius^2
+  
   unsigned char *img = malloc(w * h);
   #pragma omp parallel for
   for (int j = 0; j < h; ++j)
@@ -41,13 +44,13 @@ int main()
       double _Complex c = x + I * y;
       double _Complex z = 0;
       int k;
-      for (k = 0; k < n; ++k)
+      for (k = 0; k < kMax; ++k)
       {
         z = z * z + c;
         if (cnorm(z) > r2)
           break;
       }
-      img[j * w + i] = (k < n && cimag(z) < 0) ? 0 : 255;
+      img[j * w + i] = (k < kMax && cimag(z) < 0) ? 0 : 255;
     }
   }
   printf("P5\n%d %d\n255\n", w, h);
