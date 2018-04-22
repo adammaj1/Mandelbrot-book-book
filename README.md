@@ -187,7 +187,19 @@ With the escape radius at 512, the cells look almost square, and there are no vi
 
 c99 code: [fa.c](fa.c)
  
+### Final radius
 
+![](fr.png)
+
+
+
+colour function uses both sources of information now: 
+* hue coming from the escape time
+* value from the final angle
+* sat from final radius
+
+
+c99 code: [fr.c](fr.c)
 
 ### Exterior Coordinates
 
