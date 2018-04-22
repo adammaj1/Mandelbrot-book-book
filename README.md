@@ -41,7 +41,7 @@ fixed maximum number of iterations N and escape radius R
 The disconnected specks visible in the image turn out to be copies of the whole, and
 despite appearances the Mandelbrot set is connected.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -74,7 +74,7 @@ R >= 2
 ```
 
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -104,7 +104,7 @@ R = 25
 ```
 makes the decomposed cells roughly square.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -142,7 +142,7 @@ mu = n + 1 - log(log (|z|))/log(2)
 > result of having iterated to infinity, that is, of having an infinite
 > escape radius, and an infinite maximum iteration count.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -178,7 +178,7 @@ of the derivatives must be modified to account for the wrapped space.
 
 @CHADancing has an example of animating image texture during a zoom video.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -226,7 +226,7 @@ tan^{-1} v_2/v_1
 
 as hue for a rainbow colouring of dwell slope.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -280,7 +280,7 @@ d = 2*z*log|z|/dz
 finer approximations to the exterior, while [adaptive super sampling](https://mathr.co.uk/blog/2014-11-22_adaptive_supersampling_using_distance_estimate.html) describes an
 adaptive supersampling method.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -316,7 +316,7 @@ makes them useful for finding components.
 @CHAModified describes a modification of atom domains, which makes smaller
 domains more visible.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -356,7 +356,7 @@ $\left|z_{p + q} - z_q\right|$ is minimized.  Misiurewicz domains surround
 Misiurewicz points whose period divides $p$, and are much larger than a single
 point, which makes makes them useful for finding Misiurewicz points.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -400,7 +400,7 @@ atom domains) need be considered:
     * Find b =dF^p(z_0,c)/dz
     * If |b| <= 1 then return b, otherwise continue with the next p.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -448,7 +448,7 @@ Following @CHAInteriorDE, simple code for distance estimate rendering now
 looks something as follows; more involved algorithms that provide a significant
 speed-up can be found at the reference.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -523,7 +523,7 @@ $$c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}$$
 A reasonable starting guess for Newton's method is within the atom domain of
 the component (@CHABasins).
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -586,7 +586,7 @@ $$ w_{m+1} = w_m - \frac{F^p(w_m, c) - w_m}
 
 A reasonable starting guess for Newton's method is $w_0 = F^p(0, c)$.
 
-#### C99 Code
+C99 Code
 
 ~~~~ {.c}
 #include <complex.h>
@@ -1433,3 +1433,26 @@ $$\left( .\overline{01001}, .\overline{01010} \right)$$
   date="2016-10-31",
   url="https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html"
 }
+
+
+
+
+
+
+# technical notes
+GitLab uses:
+* the Redcarpet Ruby library for [Markdown processing](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md)
+* [KaTeX](https://khan.github.io/KaTeX/) to render [math written with the LaTeX syntax](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md), but [only subset](https://khan.github.io/KaTeX/function-support.html). [Here is used version](https://github.com/gitlabhq/gitlabhq/blob/a0715f079c143a362a7f6157db45020b8432003e/vendor/assets/javascripts/katex.js)
+
+
+## git ( gitlab)
+
+```
+cd existing_folder
+git init
+git remote add origin git@gitlab.com:adammajewski/mandelbrot-book_book.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+```
+
