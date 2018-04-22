@@ -3,6 +3,16 @@ title: Mandelbook
 link-citations: true
 ---
 
+
+TOC
+* [membership](membership)
+* []()
+  * [ ](README.md#)
+
+
+
+
+
 fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
 
@@ -160,6 +170,22 @@ double m_continuous_dwell(int N, double R, double _Complex c)
   return -1;
 }
 ~~~~
+
+
+### Final angle
+
+![](fa.png)
+
+
+
+colour function uses both sources of information now: 
+* hue coming from the escape time
+* value from the final angle
+
+
+c99 code: [fa.c](fa.c)
+ 
+
 
 ### Exterior Coordinates
 
