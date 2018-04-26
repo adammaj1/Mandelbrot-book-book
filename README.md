@@ -205,7 +205,36 @@ c99 code: [fr.c](fr.c)
 ### Smooth exterior
 
 
-![](s.png)
+![](s.png)  
+
+
+~~~~ {.c}
+if (n < nMax) // exterior 
+      {
+              
+       /* the name final_z_abs is confusing indeed, sorry.
+	
+	It is the radial component of "exterior tiling" colouring, slightly different from Linas' renormalization.
+	
+	why denominator = 64.0 ? 
+
+	arbitrary, chosen to make the colouring look ok.  try changing it as you like
+	*/
+       
+        double final_z_abs = log(cabs(z)) / log(er) - 1.0;
+        // double final_z_abs = cabs(z);
+        int final_n = n;
+        
+        
+        double continuous_escape_time = final_n - log2(final_z_abs + 1.0);
+        hue = continuous_escape_time/64.0;
+        sat = 0.7; 
+        val = 1.0;
+      }
+
+~~~
+
+
 c99 code: [s.c](s.c)
 
 
