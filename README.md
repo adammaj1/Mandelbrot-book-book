@@ -255,7 +255,7 @@ of the derivatives must be modified to account for the wrapped space.
 
 @CHADancing has an example of animating image texture during a zoom video.
 
-C99 Code
+[C99 Code]()
 
 ~~~~ {.c}
 #include <complex.h>
@@ -303,7 +303,7 @@ tan^{-1} v_2/v_1
 
 as hue for a rainbow colouring of dwell slope.
 
-C99 Code
+[C99 Code ](dwell-gradient.c)
 
 ~~~~ {.c}
 #include <complex.h>
