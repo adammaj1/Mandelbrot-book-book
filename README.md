@@ -238,6 +238,45 @@ if (n < nMax) // exterior
 c99 code: [s.c](s.c)
 
 
+### Grid 
+
+grid showing:
+* how the escape time bands get closer together towards the boundary of the Mandelbrot set
+* how the angle cells double-up within each successive band
+
+
+![](g.png)  
+
+
+
+c99 code: [g.c](g.c)  
+~~~~ {.c}
+if (n < nMax) // exterior 
+      {
+       
+        double final_z_abs = log(cabs(z)) / log(er) - 1.0;
+        int final_n = n;
+        double continuous_escape_time = final_n - log2(final_z_abs + 1.0);
+        double  final_z_arg = fmod( carg(z)/TwoPi + 1.0, 1.0); 
+        
+        int grid = 
+        	0.05 < final_z_abs &&
+        	final_z_abs < 0.95 &&
+        	0.05 < final_z_arg &&
+        	final_z_arg < 0.95;
+        
+        
+        //        
+        hue = continuous_escape_time/64.0;
+        sat = grid * 0.7; 
+        val = 1.0;
+      }
+      
+
+~~~
+
+
+
 ### Exterior Coordinates
 
 ![Exterior coordinates rendering](ec.png "Exterior coordinates rendering")
@@ -255,7 +294,7 @@ of the derivatives must be modified to account for the wrapped space.
 
 @CHADancing has an example of animating image texture during a zoom video.
 
-[C99 Code]()
+[C99 Code](exterior-coordinates.c)
 
 ~~~~ {.c}
 #include <complex.h>
