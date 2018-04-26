@@ -201,6 +201,14 @@ colour function uses both sources of information now:
 
 c99 code: [fr.c](fr.c)
 
+
+### Smooth exterior
+
+
+![](s.png)
+c99 code: [s.c](s.c)
+
+
 ### Exterior Coordinates
 
 ![Exterior coordinates rendering](ec.png "Exterior coordinates rendering")
