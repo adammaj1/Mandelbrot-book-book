@@ -271,8 +271,53 @@ if (n < nMax) // exterior
         sat = grid * 0.7; 
         val = 1.0;
       }
-      
+~~~
 
+
+### improved grid 
+
+The grid has noticeable step changes in the width of the rays heading towards the Mandelbrot
+set, because each successive escape time band has double the number of cells, so at the boundary
+between bands there is a discontinuity where the width halves. We can compensate for this by
+making the rays wider (in local coordinate terms) further out and thinner further in. The inside
+end should be twice as narrow as the outside end, to match up with the halving of the width
+when crossing band boundaries. We keep the middle the same width as before by ensuring the
+width factor is 1 there, which means the power should be 0 at the fractional radius 0.5. Now the
+rays of the grid seem to continue along a smooth path towards the Mandelbrot set.
+
+
+
+
+![](ig.png)  
+
+
+
+c99 code: [ig.c](ig.c)  
+~~~~ {.c}
+if (n < nMax) // exterior 
+      {
+       
+        double final_z_abs = log(cabs(z)) / log(er) - 1.0;
+        int final_n = n;
+        double continuous_escape_time = final_n - log2(final_z_abs + 1.0);
+        double  final_z_arg = fmod( carg(z)/TwoPi + 1.0, 1.0); 
+        
+        // improved grid
+        double k = pow ( 0.5 , 0.5 - final_z_abs ) ;
+	double grid_weight = 0.05 ;
+        int grid = 
+        	grid_weight < final_z_abs &&
+        	final_z_abs < 1.0 - grid_weight &&
+        	grid_weight * k < final_z_arg && 
+        	final_z_arg < 1.0 - grid_weight * k;
+        
+        
+        //        
+        hue = continuous_escape_time/64.0;
+        sat = grid * 0.7; 
+        val = 1.0;
+      }
+      
 ~~~
 
 
