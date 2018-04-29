@@ -331,7 +331,9 @@ the values do change too quickly compared to the sampling rate, with the grainy 
 approach the boundary of the Mandelbrot set, no sampling rate can be high enough.  
 
 
-
+We know the escape time bands get closer together, and we know this causes problems related to the pixel spacing. So, multiplying the derivative by the pixel spacing is a first step (the pixel spacing is in fact the derivative with respect to our image device coordinates). We
+know the problems occur when the bands are closer, meaning the variation is more rapid, so we divide something by this product. What we divide by will remain somewhat magical for now,
+involving the final z iterate, but our final result is a distance estimate for the Mandelbrot set scaled to image device coordinates.  
 
 
 
@@ -347,6 +349,21 @@ To contrast with the dark boundary, we fill the interior with white
 
 
 c99 code: [n.c](n.c)  
+
+
+
+### gray grid 
+
+In the book it is : 1.32 Removing distracting colour.  
+
+The bold colours are now a distraction: they don’t show us anything we can’t see from the grid or the distance estimation. Desaturating the image and making the exterior grid a light grey gives us a clean style that is easy on the eyes.
+
+![](gg.png)  
+
+
+
+c99 code: [gg.c](gg.c)  
+
 
 
 ### Exterior Coordinates
