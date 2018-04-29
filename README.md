@@ -326,14 +326,21 @@ if (n < nMax) // exterior
 
 In the book it is : 1.31 Distance estimation.  
 
-Our images look noisy and grainy near the boundary of the Mandelbrot set. The escape time
-bands get closer and closer, while the pixel spacing is fixed. The pixel grid samples isolated
-points of a mathematically abstract image defined on the continuous plane. The Nyquist-Shannon
-sampling theorem shows that sampling isolated points from a continuum is a valid approximation
-only so long as the values don’t change too quickly between the points. Aliasing occurs when
-the values do change too quickly compared to the sampling rate, with the grainy noisy visual
-effects as we have seen. Because the escape time bands increase in number without bound as we
+Our images look noisy and grainy near the boundary of the Mandelbrot set. The escape time bands get closer and closer, while the pixel spacing is fixed. The pixel grid samples isolated points of a mathematically abstract image defined on the continuous plane. [The Nyquist-Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) shows that sampling isolated points from a continuum is a valid approximation only so long as the values don’t change too quickly between the points. Aliasing occurs when
+the values do change too quickly compared to the sampling rate, with the grainy noisy visual effects as we have seen. Because the escape time bands increase in number without bound as we
 approach the boundary of the Mandelbrot set, no sampling rate can be high enough.  
+
+
+
+
+
+
+
+The distance estimate has the useful property (proved in [the Koebe 1/4 theorem](https://en.wikipedia.org/wiki/Koebe_quarter_theorem)) that it tells us roughly how far our point is from the boundary of the Mandelbrot set. We can use it to:
+* mask the grainy noise from aliasing
+* highlighting the intricate shape of the boundary of the Mandelbrot set with all its filaments and shrunken copies. It is the pleasing side-effect.  
+
+To contrast with the dark boundary, we fill the interior with white  
 
 ![](n.png)  
 
