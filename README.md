@@ -25,16 +25,17 @@ https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
 * in c99
 * one file
 * use 
-  * OpenMP
-  * complex numbers ( complex.h )
-  * create pgm files
+  * OpenMP library 
+  * complex numbers 
+  * create [pgm or ppm](https://en.wikipedia.org/wiki/Netpbm_format) graphic files using [bash pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix))
 
 
 ## converting images
-Programs create pgm files. To convert to png use Image Magic from console:
+Programs create pgm/ppm files. To convert to png use Image Magic from console:
 
 ````
   convert *.pgm -geometry 800x800 *.png
+  convert *.ppm -geometry 800x800 *.png
 ````
 
 ## Graphical Algorithms
@@ -317,9 +318,28 @@ if (n < nMax) // exterior
         sat = grid * 0.7; 
         val = 1.0;
       }
-      
 ~~~
 
+
+### noise 
+
+
+In the book it is : 1.31 Distance estimation.  
+
+Our images look noisy and grainy near the boundary of the Mandelbrot set. The escape time
+bands get closer and closer, while the pixel spacing is fixed. The pixel grid samples isolated
+points of a mathematically abstract image defined on the continuous plane. The Nyquist-Shannon
+sampling theorem shows that sampling isolated points from a continuum is a valid approximation
+only so long as the values don’t change too quickly between the points. Aliasing occurs when
+the values do change too quickly compared to the sampling rate, with the grainy noisy visual
+effects as we have seen. Because the escape time bands increase in number without bound as we
+approach the boundary of the Mandelbrot set, no sampling rate can be high enough.  
+
+![](n.png)  
+
+
+
+c99 code: [n.c](n.c)  
 
 
 ### Exterior Coordinates
