@@ -6,29 +6,29 @@ link-citations: true
 
 TOC
 
-[Description](description)
+[Description](mandelbrot-book_book#description)
 
-[Algorithms](algorithms)
+[Algorithms](mandelbrot-book_book#algorithms)
 
 Grapical algorithms
-* [membership](membership)
-* [Escape Time](escape-time)
-* [Binary Decomposition](binary-decomposition)
-* [Continuous Dwell](continuous-dwell)
-* [Final angle](final-angle)
-* [Final radius](final-radius)
-* [Final radius](final-radius)
-* [Grid](grid)
-* [Improved grid](improved-grid)
-* [Noise](noise)
-* [Gray grid](gray-grid)
-* [Exterior coordinate](exterior-coordinates)
-* [Dwell gradient](dwell-gradient)
-* [Exterior distance](exterior-distance)
-* [Ataom domains](atom-domains)
-* [Misiurewicz domains](misiurewicz-domains)
-* [Interior coordinate](interior-coordinates)
-* [Interior distance](interior-distance)
+* [membership](mandelbrot-book_book#membership)
+* [Escape Time](mandelbrot-book_book#escape-time)
+* [Binary Decomposition](mandelbrot-book_book#binary-decomposition)
+* [Continuous Dwell](mandelbrot-book_book#continuous-dwell)
+* [Final angle](mandelbrot-book_book#final-angle)
+* [Final radius](mandelbrot-book_book#final-radius)
+* [Final radius](mandelbrot-book_book#final-radius)
+* [Grid](mandelbrot-book_book#grid)
+* [Improved grid](mandelbrot-book_book#improved-grid)
+* [Noise](mandelbrot-book_book#noise)
+* [Gray grid](mandelbrot-book_book#gray-grid)
+* [Exterior coordinate](mandelbrot-book_book#exterior-coordinates)
+* [Dwell gradient](mandelbrot-book_book#dwell-gradient)
+* [Exterior distance](mandelbrot-book_book#exterior-distance)
+* [Ataom domains](mandelbrot-book_book#atom-domains)
+* [Misiurewicz domains](mandelbrot-book_book#misiurewicz-domains)
+* [Interior coordinate](mandelbrot-book_book#interior-coordinates)
+* [Interior distance](mandelbrot-book_book#interior-distance)
 
 
 [Numerical algorithms](numerical-algorithms)
@@ -45,6 +45,11 @@ Grapical algorithms
 
 [Symbolic algorithms](symbolic-algorithms)
 * [Tuning](tuning)
+* [Primary bulb](primary-bulb)
+* [The Farey tree](the-farey-tree)
+* [Lavaurs` algorithm](lavaurs-algorithm)
+* [Primaty hub](primary-hub)
+* [Primary tip](primary-tip)
 * []()
 
 
@@ -58,7 +63,7 @@ Grapical algorithms
 # Description
 
 fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
-https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
+https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
 
 ## Compare with
 * [Examples c programs for drawing Mandelbrot set ](https://gitlab.com/adammajewski/mandelbrot_wiki_ACh) as described in [the wiki by A Cheritat](https://www.math.univ-toulouse.fr/~cheritat/wiki-draw/index.php/Mandelbrot_set)
@@ -183,7 +188,7 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 
 ![Continuous dwell rendering](cd.png "Continuous dwell rendering")
 
-[Vepstas](http://linas.org/art-gallery/escape/escape.html)  derives the renormalized continuous escape time:
+[Linas Vepstas](http://linas.org/art-gallery/escape/escape.html)  derives the renormalized continuous escape time:
 ```
 mu = n + 1 - log(log (|z|))/log(2)
 ```
@@ -689,11 +694,10 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 The formula for interior distance estimation is:
 
-$$d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
+$`d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
 {\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} +
 \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right)
-\left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$$
-
+\left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}`$
 where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$.
 
 Following @CHAInteriorDE, simple code for distance estimate rendering now
@@ -800,17 +804,17 @@ double _Complex m_nucleus(double _Complex c0, int p, int n)
 
 #### Examples
 
-$c_0 = -1.8$, $p = 3$:
-$$\begin{aligned}
+$`c_0 = -1.8`$, $`p = 3`$:
+$`\begin{aligned}
 c_0 &= -1.8 \\
 c_1 &= -1.75(78298397040690\ldots) \\
 c_2 &= -1.7548(913878280483\ldots) \\
 c_3 &= -1.754877666(5449095\ldots) \\
 c_4 &= -1.7548776662466929(\ldots)
-\end{aligned}$$
+\end{aligned}`$
 
-$c_0 = i$, $p = 4$:
-$$\begin{aligned}
+$`c_0 = i`$, $`p = 4`$:
+$`\begin{aligned}
 c_0 &= & i \\
 c_1 &= -0.(11926605504587157\ldots) &+ 0.(9357798165137615\ldots) i \\
 c_2 &= -0.(23004008246918839\ldots) &+ 1.0(769584254327267\ldots) i \\
@@ -822,21 +826,20 @@ c_7 &= -0.1565201668337550(8\ldots) &+ 1.032247108922831(6\ldots) i \\
 c_8 &= -0.1565201668337550(5\ldots) &+ 1.0322471089228318(\ldots) i \\
 c_9 &= -0.1565201668337550(3\ldots) &+ 1.0322471089228318(\ldots) i \\
 c_{10} &= -0.15652016683375508(\ldots) &+ 1.0322471089228318(\ldots) i
-\end{aligned}$$
+\end{aligned}`$
 
 ### Attractor
 
-The attractor $w$ of a point $c$ within a hyperbolic component
-of period $p$ consists of $p$ points, each satisfying:
+The attractor $`w`$ of a point $`c`$ within a hyperbolic component
+of period $`p`$ consists of $`p`$ points, each satisfying:
 
-$$F^p(w,c) = w$$
+$`F^p(w,c) = w`$
 
 Applying Newton's method in one complex variable:
 
-$$ w_{m+1} = w_m - \frac{F^p(w_m, c) - w_m}
-{\frac{\partial}{\partial z}F^p(w_m, c) - 1}$$
+$` w_{m+1} = w_m - \frac{F^p(w_m, c) - w_m}{\frac{\partial}{\partial z}F^p(w_m, c) - 1}`$
 
-A reasonable starting guess for Newton's method is $w_0 = F^p(0, c)$.
+A reasonable starting guess for Newton's method is $`w_0 = F^p(0, c)`$.
 
 C99 Code
 
@@ -863,17 +866,17 @@ double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
 
 #### Examples
 
-$c = 0.5 i$, $p = 1$:
-$$\begin{aligned}
+$`c = 0.5 i`$, $`p = 1`$:
+$`\begin{aligned}
 w_0 &= & 0.5 i \\
 w_1 &= -0.1(2500000000000000\ldots) &+ 0.3(7500000000000000\ldots) i \\
 w_2 &= -0.1360(2941176470587\ldots) &+ 0.393(38235294117646\ldots) i \\
 w_3 &= -0.136009(77572623132\ldots) &+ 0.393075(72864807383\ldots) i \\
 w_4 &= -0.13600982475703(358\ldots) &+ 0.3930756888787(0914\ldots) i \\
 w_5 &= -0.13600982475703449(\ldots) &+ 0.39307568887871164(\ldots) i
-\end{aligned}$$
+\end{aligned}`$
 
-$c = -1.1 + 0.1 i$, $p = 2$:
+$`c = -1.1 + 0.1 i`$, $`p = 2`$:
 $$\begin{aligned}
 w_0 &= 0.1 &- 0.12 i \\
 w_1 &= 0.09(5782435714904968\ldots) &- 0.08(4585559740811250\ldots) i \\
