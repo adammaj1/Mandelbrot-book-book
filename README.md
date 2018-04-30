@@ -6,13 +6,13 @@ link-citations: true
 
 TOC
 
-[Description](mandelbrot-book_book#description)
+[Description](README.md#description)
 
-[Algorithms](mandelbrot-book_book#algorithms)
+[Algorithms](README.md#algorithms)
 
 Grapical algorithms
-* [membership](mandelbrot-book_book#membership)
-* [Escape Time](mandelbrot-book_book#escape-time)
+* [membership](README.md#membership)
+* [Escape Time](README.md#escape-time)
 * [Binary Decomposition](mandelbrot-book_book#binary-decomposition)
 * [Continuous Dwell](mandelbrot-book_book#continuous-dwell)
 * [Final angle](mandelbrot-book_book#final-angle)
