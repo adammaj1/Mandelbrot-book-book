@@ -4,7 +4,7 @@ link-citations: true
 ---
 
 
-TOC
+# TOC
 
 [Description](README.md#description)
 
@@ -768,13 +768,13 @@ double m_distance(int N, double R, double _Complex c)
 
 ### Nucleus
 
-The nucleus $c$ of a hyperbolic component of period $p$ satisfies:
+The nucleus $`c`$ of a hyperbolic component of period $`p`$ satisfies:
 
-$$F^p(0,c) = 0$$
+$`F^p(0,c) = 0`$
 
 Applying Newton's method in one complex variable:
 
-$$c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}$$
+$`c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}`$
 
 A reasonable starting guess for Newton's method is within the atom domain of
 the component (@CHABasins).
@@ -805,16 +805,20 @@ double _Complex m_nucleus(double _Complex c0, int p, int n)
 #### Examples
 
 $`c_0 = -1.8`$, $`p = 3`$:
-$`\begin{aligned}
+```
+\begin{aligned}
 c_0 &= -1.8 \\
 c_1 &= -1.75(78298397040690\ldots) \\
 c_2 &= -1.7548(913878280483\ldots) \\
 c_3 &= -1.754877666(5449095\ldots) \\
 c_4 &= -1.7548776662466929(\ldots)
-\end{aligned}`$
+\end{aligned}
+```
 
 $`c_0 = i`$, $`p = 4`$:
-$`\begin{aligned}
+
+```
+\begin{aligned}
 c_0 &= & i \\
 c_1 &= -0.(11926605504587157\ldots) &+ 0.(9357798165137615\ldots) i \\
 c_2 &= -0.(23004008246918839\ldots) &+ 1.0(769584254327267\ldots) i \\
@@ -826,7 +830,8 @@ c_7 &= -0.1565201668337550(8\ldots) &+ 1.032247108922831(6\ldots) i \\
 c_8 &= -0.1565201668337550(5\ldots) &+ 1.0322471089228318(\ldots) i \\
 c_9 &= -0.1565201668337550(3\ldots) &+ 1.0322471089228318(\ldots) i \\
 c_{10} &= -0.15652016683375508(\ldots) &+ 1.0322471089228318(\ldots) i
-\end{aligned}`$
+\end{aligned}
+```
 
 ### Attractor
 
@@ -867,39 +872,47 @@ double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
 #### Examples
 
 $`c = 0.5 i`$, $`p = 1`$:
-$`\begin{aligned}
+
+```
+\begin{aligned}
 w_0 &= & 0.5 i \\
 w_1 &= -0.1(2500000000000000\ldots) &+ 0.3(7500000000000000\ldots) i \\
 w_2 &= -0.1360(2941176470587\ldots) &+ 0.393(38235294117646\ldots) i \\
 w_3 &= -0.136009(77572623132\ldots) &+ 0.393075(72864807383\ldots) i \\
 w_4 &= -0.13600982475703(358\ldots) &+ 0.3930756888787(0914\ldots) i \\
 w_5 &= -0.13600982475703449(\ldots) &+ 0.39307568887871164(\ldots) i
-\end{aligned}`$
+\end{aligned}
+```
 
 $`c = -1.1 + 0.1 i`$, $`p = 2`$:
-$$\begin{aligned}
+```
+\begin{aligned}
 w_0 &= 0.1 &- 0.12 i \\
 w_1 &= 0.09(5782435714904968\ldots) &- 0.08(4585559740811250\ldots) i \\
 w_2 &= 0.09749(9098252211647\ldots) &- 0.0836(77122424611575\ldots) i \\
 w_3 &= 0.097497068(763801931\ldots) &- 0.0836824188(71189990\ldots) i \\
 w_4 &= 0.097497068806210202(\ldots) &- 0.083682418894370822(\ldots) i
-\end{aligned}$$
+\end{aligned}
+```
 
 ### Interior Point
 
-The interior point $b$
-at internal angle $\theta$ measured in turns and internal radius $r \in [0,1]$
-within a hyperbolic component of period $p$
+The interior point $`b`$
+at internal angle $`\theta`$ measured in turns and internal radius $`r \in [0,1]`$
+within a hyperbolic component of period $`p`$
 satisfies:
-
-$$\begin{aligned}
+```
+\begin{aligned}
 F^p(w,b) &= w \\
-\frac{\partial}{\partial z}F^p(w,b) &= r e^{2 \pi i \theta} = t
-\end{aligned}$$
+\fr`ac{\partial}{\partial z}F^p(w,b) &= r e^{2 \pi i \theta} = t
+\end{aligned}`
+```
 
 Applying Newton's method in two complex variables:
 
-$$\left(\begin{matrix}
+
+```
+\left(\begin{matrix}
 \frac{\partial}{\partial z}F^p(w_m,b_m) - 1 &
 \frac{\partial}{\partial c}F^p(w_m,b_m) \\
 \frac{\partial}{\partial z}\frac{\partial}{\partial z}F^p(w_m,b_m) &
@@ -909,7 +922,8 @@ w_{m+1} - w_m \\
 b_{m+1} - b_m\end{matrix}\right) = -\left(\begin{matrix}
 F^p(w_m,b_m) - w_m \\
 \frac{\partial}{\partial z}F^p(w_m,b_m) - t
-\end{matrix}\right)$$
+\end{matrix}\right)
+```
 
 #### C99 Code
 
@@ -951,15 +965,17 @@ void m_interior_point
 
 #### Examples
 
-$r = 1$, $\theta = \frac{1}{3}$, $p = 1$
-$$\begin{aligned}
+$`r = 1`$, $`\theta = \frac{1}{3}`$, $`p = 1`$
+```
+\begin{aligned}
 w_0 &= 0 \\
 b_0 &= 0 \\
 w_1 &= -0.24999999999999989 + 0.43301270189221935 i \\
 b_1 &= -0.24999999999999989 + 0.43301270189221935 i \\
 w_2 &= -0.24999999999999989 + 0.43301270189221935 i \\
 b_2 &= -0.12499999999999978 + 0.64951905283832900 i
-\end{aligned}$$
+\end{aligned}
+```
 
 ### Misiurewicz Point
 
@@ -968,34 +984,34 @@ b_2 &= -0.12499999999999978 + 0.64951905283832900 i
 
 ### Child Sizes
 
-Child of a cardioid of size $s$ at internal angle $\frac{p}{q}$ has size
+Child of a cardioid of size $`s`$ at internal angle $`\frac{p}{q}`$ has size
 approximately:
-$$s' = \frac{s}{q^2} \sin\left(\pi \frac{p}{q}\right)$$
+$`s' = \frac{s}{q^2} \sin\left(\pi \frac{p}{q}\right)`$
 
-Child of a circle of size $s$ at internal angle $\frac{p}{q}$ has size
+Child of a circle of size $`s`$ at internal angle $`\frac{p}{q}`$ has size
 approximately:
-$$s' = \frac{s}{q^2}$$
+$`s' = \frac{s}{q^2}`$
 
 ### Size Estimate
 
 @MSetENotes2013 presents a method to estimate the size of a hyperbolic component:
 
-> Under iterations the critical orbit of period $p$ consecutively cycles
-> through $p$ narrow intervals $S_1 \to S_2 \to \ldots \to S_1$ each of width
-> $s_j$ (we choose $S_1$ to include the critical point $z = 0$).
-> We expand $F^p(z, c)$ for small $z$ (in the narrow central interval $S_1$)
-> and $c$ near its value $c_0$ at superstability of period-$p$ attracting
-> orbit. We see that the $s_j$ are small and the map in the intervals
-> $S_2, S_3, \ldots S_n$ may be regarded as approximately linear; the full
+> Under iterations the critical orbit of period $`p`$ consecutively cycles
+> through $`p`$ narrow intervals $`S_1 \to S_2 \to \ldots \to S_1`$ each of width
+> $`s_j`$ (we choose $`S_1`$ to include the critical point $`z = 0`$).
+> We expand $`F^p(z, c)`$ for small $`z`$ (in the narrow central interval $`S_1`$)
+> and $`c`$ near its value $`c_0`$ at superstability of period-$`p`$ attracting
+> orbit. We see that the $`s_j`$ are small and the map in the intervals
+> $`S_2, S_3, \ldots S_n`$ may be regarded as approximately linear; the full
 > quadratic map must be retained for the central interval. One thus obtains
-> $$z_{n+p} \approx L_p (z_n^2 + b (c - c_0))$$
-> where $L_p = l_2 l_3 \ldots l_p$ is the product of the map slopes,
-> $l_n = 2 z_n$ in $p-1$ noncentral intervals and
-> $b = 1 + l_2^{-1} + (l_2 l_3)^{-1} + ... + L_n^{-1}$.
-> We take $L_n$ at $c = c_0$ and treat it as a constant in narrow window.
-> Introducing $Z = L_n z$ and $C = b L_n^2 (c - c_0)$ we get quadratic map
-> $Z_{n+p} = Z_n^2 + C$.
-> Therefore the window width scales like $(b L_n^2)^{-1}$. 
+> $`z_{n+p} \approx L_p (z_n^2 + b (c - c_0))`$
+> where $`L_p = l_2 l_3 \ldots l_p`$ is the product of the map slopes,
+> $`l_n = 2 z_n`$ in $`p-1`$ noncentral intervals and
+> $`b = 1 + l_2^{-1} + (l_2 l_3)^{-1} + ... + L_n^{-1}`$.
+> We take $`L_n`$ at $`c = c_0`$ and treat it as a constant in narrow window.
+> Introducing $`Z = L_n z`$ and $`C = b L_n^2 (c - c_0)`$ we get quadratic map
+> $`Z_{n+p} = Z_n^2 + C`$.
+> Therefore the window width scales like $`(b L_n^2)^{-1}`$. 
 
 #### C99 Code
 
@@ -1020,37 +1036,40 @@ double _Complex m_size_estimate(double _Complex c, int p)
 
 #### Examples
 
-Cardioid $c = 0$, $p = 1$:
-$$|s| = 1$$
+Cardioid $`c = 0`$, $`p = 1`$:
+$`|s| = 1`$
 
-Circle $c = -1$, $p = 2$:
-$$|s| = \frac{1}{2}$$
+Circle $`c = -1`$, $`p = 2`$:
+$`|s| = \frac{1}{2}`$
 
-Cardioid $c = -1.7548776662466927$, $p = 3$:
-$$|s| = 0.019035515913132451$$ 
+Cardioid $`c = -1.7548776662466927`$, $`p = 3`$:
+$`|s| = 0.019035515913132451`$ 
 
-Cardioid $c = -0.15652016683375508 + 1.0322471089228318 i$, $p = 4$:
-$$\begin{aligned}
+Cardioid $`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
+```
+\begin{aligned}
 |s| &= 0.0084828587005172946 \\
 \arg s &= -0.61719885061563229
-\end{aligned}$$
+\end{aligned}
+```
 
 ### Shape Estimate
 
-@Dolotin2008 [eq. 5.8] derive a shape estimate $s$,
-with derivatives evaluated at $F^p(0,c)$ where $c$ is a nucleus
-of period $p$:
+@Dolotin2008 [eq. 5.8] derive a shape estimate $`s`$,
+with derivatives evaluated at $`F^p(0,c)`$ where $`c`$ is a nucleus
+of period $`p`$:
 
-$$s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)
+```
+s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)
                  \left(\frac{\partial}{\partial z}\right)}
         \left(\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial c}}
                    {2 \frac{\partial}{\partial c}} +
               \frac{\frac{\partial}{\partial c}\frac{\partial}{\partial z}}
                    {  \frac{\partial}{\partial z}}\right)
-$$
+```
 
-$s \approx 0$ corresponds to cardioid-like shapes.
-$s \approx 1$ corresponds to circle-like shapes.
+$`s \approx 0`$ corresponds to cardioid-like shapes.  
+$`s \approx 1`$ corresponds to circle-like shapes.  
 
 #### C99 Code
 
@@ -1086,20 +1105,20 @@ bool m_shape_is_cardioid(double _Complex s)
 
 #### Examples
 
-$c = -0.12256116687665361 + 0.74486176661974424 i$, $p = 3$:
-$$s = 1.0212516030641008 + 0.047630153362811116 i \approx 1$$
+$`c = -0.12256116687665361 + 0.74486176661974424 i`$, $`p = 3`$:  
+$`s = 1.0212516030641008 + 0.047630153362811116 i \approx 1`$
 
-$c = -0.15652016683375508 + 1.0322471089228318 i$, $p = 4$:
-$$s = 0.058425597199448037 + 0.084498085298473649 i \approx 0$$
+$`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
+$`s = 0.058425597199448037 + 0.084498085298473649 i \approx 0`$
 
 ### Domain Size
 
-@CHADomainSize derives the atom domain size estimate for a nucleus $c$ of
-period $p$ as:
+@CHADomainSize derives the atom domain size estimate for a nucleus $`c`$ of
+period $`p`$ as:
 
-$$r = \left|\frac{F^q(0, c)}{\frac{\partial}{\partial c} F^p(0, c)}\right|$$
+$`r = \left|\frac{F^q(0, c)}{\frac{\partial}{\partial c} F^p(0, c)}\right|`$
 
-where $1 \le q < p$ minimizes $\left|F^q(0, c)\right|$.  The atom domain size
+where $`1 \le q < p`$ minimizes $`\left|F^q(0, c)\right|`$.  The atom domain size
 is approximately 4 times the radius of circle-like components, and typically a
 lot larger for cardioid-like components.
 
@@ -1270,13 +1289,11 @@ are the external angles of the tip of the antenna of the period $3$ island.
 The child bulb of the period $1$ cardioid at internal angle $\frac{p}{q}$
 has external angles:
 
-$$(.\overline{b_0 b_1 \ldots b_{q-3} 0 1},
-   .\overline{b_0 b_1 \ldots b_{q-3} 1 0})$$
+$`(.\overline{b_0 b_1 \ldots b_{q-3} 0 1},    .\overline{b_0 b_1 \ldots b_{q-3} 1 0})`$
 
 where
 
-$$b_0 b_1 \ldots = \operatorname{map} \left(\in \left(1 - \frac{p}{q}, 1\right)\right) \circ
-  \operatorname{iterate} \left(+\frac{p}{q}\right) $ \frac{p}{q}$$
+$`b_0 b_1 \ldots = \operatorname{map} \left(\in \left(1 - \frac{p}{q}, 1\right)\right) \circ \operatorname{iterate} \left(+\frac{p}{q}\right) $ \frac{p}{q}`$
 
 #### Haskell Code
 
@@ -1302,12 +1319,13 @@ primaryBulb pq = (([], bs ++ [False, True]), ([], bs ++ [True, False]))
 #### Examples
 
 Consider the bulb at internal angle $\frac{p}{q} = \frac{2}{5}$:
-
-$$\begin{aligned}
+```
+\begin{aligned}
 r_0 = \frac{2}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_0 = 0 \\
 r_1 = \frac{4}{5} &    \in \left(1 - \frac{2}{5},1\right) &\therefore b_1 = 1 \\
 r_2 = \frac{1}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_2 = 0
-\end{aligned}$$
+\end{aligned}
+```
 
 Therefore the external angles for the $\frac{2}{5}$ bulb are:
 
