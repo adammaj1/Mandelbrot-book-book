@@ -512,9 +512,9 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
 
 ![Atom domains rendering](ad.png "Atom domains rendering")
 
-Atom domains in the Mandelbrot set are defined as the index $p \ge 1$ at which
-\left|z_p\right| is minimized during iteration of $z_0 = 0$ and
-$z_{n+1} = z_n^2 + c$. Atom domains surround hyperbolic components of the same
+Atom domains in the Mandelbrot set are defined as the index $`p \ge 1`$ at which
+$`\left|z_p\right|`$ is minimized during iteration of $`z_0 = 0`$ and
+$`z_{n+1} = z_n^2 + c`$. Atom domains surround hyperbolic components of the same
 period, and are generally much larger than the components themselves, which
 makes them useful for finding components.
 
