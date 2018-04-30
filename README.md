@@ -6,6 +6,7 @@ link-citations: true
 
 TOC
 
+[Description](description)
 
 [Algorithms](algorithms)
 
@@ -50,6 +51,9 @@ Grapical algorithms
 [Futher algorithms](futher-algorithms)
 * []()
 
+[Bibliography](bibliography)
+
+[Technical notes](technical-notes)
 
 # Description
 
