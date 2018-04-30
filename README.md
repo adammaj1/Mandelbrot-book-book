@@ -5,13 +5,53 @@ link-citations: true
 
 
 TOC
+
+
+[Algorithms](algorithms)
+
+Grapical algorithms
 * [membership](membership)
+* [Escape Time](escape-time)
+* [Binary Decomposition](binary-decomposition)
+* [Continuous Dwell](continuous-dwell)
+* [Final angle](final-angle)
+* [Final radius](final-radius)
+* [Final radius](final-radius)
+* [Grid](grid)
+* [Improved grid](improved-grid)
+* [Noise](noise)
+* [Gray grid](gray-grid)
+* [Exterior coordinate](exterior-coordinates)
+* [Dwell gradient](dwell-gradient)
+* [Exterior distance](exterior-distance)
+* [Ataom domains](atom-domains)
+* [Misiurewicz domains](misiurewicz-domains)
+* [Interior coordinate](interior-coordinates)
+* [Interior distance](interior-distance)
+
+
+[Numerical algorithms](numerical-algorithms)
+* [Nucleus](nucleus)
+* [Attractot](attractor)
+* [Interior point](interior-point)
+* [Misiurewicz point](misiurewicz-point)
+* [Child sizes](child-sizes)
+* [Size estimate](size-estimate)
+* [Shape estimate](shape estimate)
+* [Domain size](domain-size)
+* [External ray in](external-ray-in)
+* [External ray out](external-ray-out)
+
+[Symbolic algorithms](symbolic-algorithms)
+* [Tuning](tuning)
 * []()
-  * [ ](README.md#)
 
 
+[Futher algorithms](futher-algorithms)
+* []()
 
 
+# Description
 
 fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/book.md)
@@ -37,6 +77,7 @@ Programs create pgm/ppm files. To convert to png use Image Magic from console:
   convert *.pgm -geometry 800x800 *.png
   convert *.ppm -geometry 800x800 *.png
 ````
+# Algorithms
 
 ## Graphical Algorithms
 
@@ -508,7 +549,7 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
 }
 ~~~~
 
-### Atom Domains
+### Parameter Plain ( Mandelbrot) Atom Domains
 
 ![Atom domains rendering](ad.png "Atom domains rendering")
 
@@ -545,6 +586,8 @@ int m_atom_domains(int N, double R, double _Complex c)
   return p;
 }
 ~~~~
+
+see also : [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)
 
 ### Misiurewicz Domains
 
