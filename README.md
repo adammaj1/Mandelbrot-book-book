@@ -1272,21 +1272,21 @@ tuning (([], per0), ([], per1)) (pre, per)
 #### Examples
 
 The external angle pair of the period $3$ island is:
-$$\left(.\overline{011}, .\overline{100}\right)$$
+$`\left(.\overline{011}, .\overline{100}\right)`$
 
-The lower angle of the period $2$ bulb is $.\overline{01}$, tuned by the
-period $3$ island becomes $.\overline{011100}$ which is the lower angle of
-the period $6$ bulb attached to the period $3$ cardioid at internal angle
-$\frac{1}{2}$.
+The lower angle of the period $`2`$ bulb is $`.\overline{01}`$, tuned by the
+period $`3`$ island becomes $`.\overline{011100}`$ which is the lower angle of
+the period $`6`$ bulb attached to the period $`3`$ cardioid at internal angle
+$`\frac{1}{2}`$.
 
 The external angle of the tip of the antenna is
-$.1 = .0\overline{1} = .1\overline{0}$, tuned by the period $3$ island
-becomes respectively $.011\overline{100}$ and $.100\overline{011}$, which
-are the external angles of the tip of the antenna of the period $3$ island.
+$`.1 = .0\overline{1} = .1\overline{0}`$, tuned by the period $`3`$ island
+becomes respectively $`.011\overline{100}`$ and $`.100\overline{011}`$, which
+are the external angles of the tip of the antenna of the period $`3`$ island.
 
 ### Primary Bulb
 
-The child bulb of the period $1$ cardioid at internal angle $\frac{p}{q}$
+The child bulb of the period $1$ cardioid at internal angle $`\frac{p}{q}`$
 has external angles:
 
 $`(.\overline{b_0 b_1 \ldots b_{q-3} 0 1},    .\overline{b_0 b_1 \ldots b_{q-3} 1 0})`$
@@ -1318,7 +1318,7 @@ primaryBulb pq = (([], bs ++ [False, True]), ([], bs ++ [True, False]))
 
 #### Examples
 
-Consider the bulb at internal angle $\frac{p}{q} = \frac{2}{5}$:
+Consider the bulb at internal angle $`\frac{p}{q} = \frac{2}{5}`$:
 ```
 \begin{aligned}
 r_0 = \frac{2}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_0 = 0 \\
@@ -1327,9 +1327,9 @@ r_2 = \frac{1}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_2 = 0
 \end{aligned}
 ```
 
-Therefore the external angles for the $\frac{2}{5}$ bulb are:
+Therefore the external angles for the $`\frac{2}{5}`$ bulb are:
 
-$$\left( .\overline{01001}, .\overline{01010} \right)$$
+$`\left( .\overline{01001}, .\overline{01010} \right)`$
 
 ### The Farey Tree
 
