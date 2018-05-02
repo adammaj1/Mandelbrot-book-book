@@ -67,6 +67,7 @@ https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
 
 ## Compare with
 * [html book draft](https://mathr.co.uk/mandelbrot/book-draft/)
+* [pdf 2014-04-25 ](https://mathr.co.uk/mandelbrot/book-draft-2014-04-25-web.pdf)
 * [Examples c programs for drawing Mandelbrot set ](https://gitlab.com/adammajewski/mandelbrot_wiki_ACh) as described in [the wiki by A Cheritat](https://www.math.univ-toulouse.fr/~cheritat/wiki-draw/index.php/Mandelbrot_set)
 * [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen ( full repository )](https://code.mathr.co.uk/mandelbrot-book)
 * [clone of mandelbrot-book, use c files not diffs](https://gitlab.com/adammajewski/my-book) and [pdf file](https://gitlab.com/adammajewski/git-book-pdf)
