@@ -507,26 +507,38 @@ double _Complex m_dwell_gradient(int N, double R, double s, double d, double _Co
 
 ### Exterior Distance
 
+
+
+Given c outside the Mandelbrot set, the exterior distance estimate   
+
+$`d = \lim_{n \to \infty} 2 \frac{|F^n(0,c)| \log|F^n(0,c)|}{|\frac{\partial}{\partial c}F^n(0,c)|}`$
+
+satisfies by the Koebe $`\frac{1}{4}`$ Theorem 
+
+
+$`\forall c' . |c - c'| < \frac{d}{4} \implies c' \notin M`$
+
+
+Shading using $`t = \tanh \frac{d}{\text{pixel size}}`$ works well because $`t \in [0,1)`$ and $`\tanh 4 \approx 1`$.
+
+
+
+
 ![Exterior distance rendering](ed.png "Exterior distance rendering")
 
-Formalizes the dwell gradient idea, in that closeness of dwell bands is related
-to closeness to the boundary of the set.
+Formalizes the dwell gradient idea, in that closeness of dwell bands is related to closeness to the boundary of the set.  
 
 
 ```
-d = 2*abs(z)*log|z|/|dz|
+d = 2*abs(z)*log|z|/|dz|  
 ```
 
-where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/demm) 
+where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/demm)   
 
 
-No point in the Mandelbrot set is within d/4.
-There is a point in the Mandelbrot set within 4 d .
-Compare with pixel spacing to know if the Mandelbrot set might intersect a
-pixel.  Colouring using tanh works well, because tanh 4 ~ 1
+No point in the Mandelbrot set is within d/4. There is a point in the Mandelbrot set within 4 d . Compare with pixel spacing to know if the Mandelbrot set might intersect a pixel.  Colouring using tanh works well, because tanh 4 ~ 1  
 
-A complex-valued distance estimate (with directional information) can be
-calculated by:
+A complex-valued distance estimate (with directional information) can be calculated by:
 
 ```
 d = 2*z*log|z|/dz
@@ -609,7 +621,7 @@ see also :
    
 
 
-One can apply atom domain algorithm only to the exterior :   
+One can apply atom domain algorithm only to the exterior and add grid:   
 
 ![Atom domains with grid](ad2.png "Atom domains rendering with grid")  
 
