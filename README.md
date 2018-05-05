@@ -727,7 +727,7 @@ $`d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
 {\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} +
 \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right)
 \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}`$
-where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$.
+where the derivatives are evaluated at $`z_0`$ satisfying $`F^p(z_0, c) = z_0`$.
 
 Following @CHAInteriorDE, simple code for distance estimate rendering now
 looks something as follows; more involved algorithms that provide a significant
