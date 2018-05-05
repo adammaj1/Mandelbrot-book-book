@@ -572,8 +572,7 @@ $`z_{n+1} = z_n^2 + c`$. Atom domains surround hyperbolic components of the same
 period, and are generally much larger than the components themselves, which
 makes them useful for finding components.
 
-@CHAModified describes a modification of atom domains, which makes smaller
-domains more visible.
+
 
 C99 Code : [atom-domains.c](atom-domains.c)
 
@@ -600,7 +599,12 @@ int m_atom_domains(int N, double R, double _Complex c)
 }
 ~~~~
 
-see also : [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)  
+see also : 
+* [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)  
+* [wikibooks](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/atomdomains)
+* @CHAModified describes a [modification of atom domains](https://mathr.co.uk/blog/2012-12-25_modified_atom_domains.html), which makes smaller domains more visible
+* [filtered_atom_domains](http://mathr.co.uk/blog/2017-05-22_filtered_atom_domains.html)
+
    
    
 
