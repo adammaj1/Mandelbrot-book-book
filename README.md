@@ -25,7 +25,7 @@ Grapical algorithms
 * [Exterior coordinate](README.md#exterior-coordinates)
 * [Dwell gradient](README.md#dwell-gradient)
 * [Exterior distance](README.md#exterior-distance)
-* [Ataom domains](README.md#atom-domains)
+* [Atom domains](README.md#atom-domains)
 * [Misiurewicz domains](README.md#misiurewicz-domains)
 * [Interior coordinate](README.md#interior-coordinates)
 * [Interior distance](README.md#interior-distance)
@@ -560,7 +560,9 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
 }
 ~~~~
 
-### Parameter Plain ( Mandelbrot) Atom Domains
+### Atom domains
+
+Parameter Plain ( Mandelbrot) Atom Domains
 
 ![Atom domains rendering](ad.png "Atom domains rendering")
 
