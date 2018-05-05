@@ -573,7 +573,7 @@ makes them useful for finding components.
 @CHAModified describes a modification of atom domains, which makes smaller
 domains more visible.
 
-C99 Code
+C99 Code : [atom-domains.c](atom-domains.c)
 
 ~~~~ {.c}
 #include <complex.h>
@@ -598,7 +598,18 @@ int m_atom_domains(int N, double R, double _Complex c)
 }
 ~~~~
 
-see also : [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)
+see also : [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)  
+   
+   
+
+
+One can apply atom domain algorithm only to the exterior :   
+
+![Atom domains with grid](ad2.png "Atom domains rendering with grid")  
+
+C99 Code : [ad2.c](ad2.c)  
+
+
 
 ### Misiurewicz Domains
 
@@ -1291,7 +1302,7 @@ are the external angles of the tip of the antenna of the period $`3`$ island.
 The child bulb of the period $1$ cardioid at internal angle $`\frac{p}{q}`$
 has external angles:
 
-$`(.\overline{b_0 b_1 \ldots b_{q-3} 0 1},    .\overline{b_0 b_1 \ldots b_{q-3} 1 0})`$
+$`(.\overline{b_0 b_1 \ldots b_{q-3} 0 1}, .\overline{b_0 b_1 \ldots b_{q-3} 1 0})`$
 
 where
 
