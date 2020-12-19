@@ -94,7 +94,7 @@ int main()
       double _Complex dc = 0;
       double mz = 1.0 / 0.0;
       double _Complex b = 0;
-      double de = -1;
+      double de = -1; // 
       int k;
       for (k = 1; k < n; ++k)
       {
@@ -119,25 +119,30 @@ int main()
         }
         if (cnorm(z) > r2)
         {
-          de = 2 * cabs(z) * log(cabs(z)) / cabs(dc * dc0);
+          de = 2 * cabs(z) * log(cabs(z)) / cabs(dc * dc0); // de > 0
           break;
         }
       }
       double hue = 0;
       double sat = 0;
       double val = 1;
+      
+      
       if (k < n && de < 0)
       {
         hue = carg(b) / (2 * pi);
         sat = cnorm(b);
         val = 1;
       }
+      
       if (de >= 0)
       {
         hue = 0;
         sat = 0;
         val = tanh(de / aa);
       }
+      
+      
       int red, grn, blu;
       hsv2rgb(hue, sat, val, &red, &grn, &blu);
       img[3 * (j * w + i) + 0] = red;

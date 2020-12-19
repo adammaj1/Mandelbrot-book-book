@@ -84,10 +84,14 @@ https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
 ## converting images
 Programs create pgm/ppm files. To convert to png use Image Magic from console:
 
-````
+```
   convert *.pgm -geometry 800x800 *.png
   convert *.ppm -geometry 800x800 *.png
-````
+```
+
+
+
+
 # Algorithms
 
 ## Graphical Algorithms
@@ -238,7 +242,7 @@ colour function uses both sources of information now:
 With the escape radius at 512, the cells look almost square, and there are no visible gltiches.
 
 
-c99 code: [fa.c](fa.c)
+c99 code: [fa.c](./src/fa.c)
  
 ### Final radius
 
@@ -252,7 +256,7 @@ colour function uses both sources of information now:
 * sat from final radius
 
 
-c99 code: [fr.c](fr.c)
+c99 code: [fr.c](./src/fr.c)
 
 
 ### Smooth exterior
@@ -288,7 +292,7 @@ if (n < nMax) // exterior
 ```
 
 
-c99 code: [s.c](s.c)
+c99 code: [s.c](./src/s.c)
 
 
 ### Grid 
@@ -302,7 +306,7 @@ grid showing:
 
 
 
-c99 code: [g.c](g.c)  
+c99 code: [g.c](./src/g.c)  
 ```c
 if (n < nMax) // exterior 
       {
@@ -341,11 +345,11 @@ rays of the grid seem to continue along a smooth path towards the Mandelbrot set
 
 
 
-![](ig.png)  
+![](./images/ig.png)  
 
 
 
-c99 code: [ig.c](./images/ig.c)  
+c99 code: [ig.c](./src/ig.c)  
 ```c
 if (n < nMax) // exterior 
       {
@@ -400,7 +404,7 @@ To contrast with the dark boundary, we fill the interior with white
 
 
 
-c99 code: [n.c](n.c)  
+c99 code: [n.c](./src/n.c)  
 
 
 
@@ -414,7 +418,7 @@ The bold colours are now a distraction: they don’t show us anything we can’t
 
 
 
-c99 code: [gg.c](gg.c)  
+c99 code: [gg.c](./src/gg.c)  
 
 
 
@@ -435,7 +439,7 @@ of the derivatives must be modified to account for the wrapped space.
 
 @CHADancing has an example of animating image texture during a zoom video.
 
-[C99 Code](exterior-coordinates.c)
+[C99 Code](./src/exterior-coordinates.c)
 
 ```c
 #include <complex.h>
@@ -483,7 +487,7 @@ tan^{-1} v_2/v_1
 
 as hue for a rainbow colouring of dwell slope.
 
-[C99 Code ](dwell-gradient.c)
+[C99 Code ](./src/dwell-gradient.c)
 
 ```c
 #include <complex.h>
@@ -623,7 +627,7 @@ One can apply atom domain algorithm only to the exterior and add grid:
 
 ![Atom domains with grid](./images/ad2.png "Atom domains rendering with grid")  
 
-C99 Code : [ad2.c](ad2.c)  
+C99 Code : [ad2.c](./src/ad2.c)  
 
 
 
@@ -1044,7 +1048,7 @@ $`s' = \frac{s}{q^2}`$
 
 #### C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 double _Complex m_size_estimate(double _Complex c, int p)
@@ -1061,7 +1065,7 @@ double _Complex m_size_estimate(double _Complex c, int p)
 	double _Complex s = 1 / (b * l * l);
 	return s;
 }
-~~~~
+```
 
 #### Examples
 
@@ -1102,7 +1106,7 @@ $`s \approx 1`$ corresponds to circle-like shapes.
 
 #### C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <stdbool.h>
 
@@ -1130,7 +1134,7 @@ bool m_shape_is_cardioid(double _Complex s)
 	bool d = cabs(s) < cabs(s - 1);
 	return d;
 }
-~~~~
+```
 
 #### Examples
 
@@ -1153,7 +1157,7 @@ lot larger for cardioid-like components.
 
 #### C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 double domain_size(double _Complex c, int p)
@@ -1171,7 +1175,7 @@ double domain_size(double _Complex c, int p)
   }
   return abszq / cabs(dc);
 }
-~~~~
+```
 
 #### Examples
 
@@ -1202,7 +1206,7 @@ within the basin of attraction for Newton's method for nucleus).
 
 #### C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 #include <gmp.h>
@@ -1268,7 +1272,7 @@ double _Complex m_exray_in_step(struct m_exray_in *ray, int n)
 	ray->c = c;
 	return c;
 }
-~~~~
+```
 
 ### External Ray Out
 

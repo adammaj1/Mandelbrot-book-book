@@ -68,7 +68,7 @@ int main()
       double _Complex c = x + I * y;
       double _Complex z = 0;
       double _Complex dc = 0;
-      double mz = 1.0 / 0.0;
+      double mz = 1.0 / 0.0; // minimal z2
       int m = 0;
       double de = -1;
       int k;

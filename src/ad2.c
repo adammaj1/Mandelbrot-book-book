@@ -155,7 +155,7 @@ int main()
         
         hue = ( final_p - 1.0) / 9.618033988749895 ; // atom domains
         sat = 0.5 ;
-	val = fmin ( tanh ( fmin ( fmax ( de , 0.0 ) , 4.0)) ,  0.8 + 0.2 * grid ) ; // grid
+	val = fmin ( tanh ( fmin ( fmax ( de , 0.0 ) , 4.0)) ,  0.8 + 0.2 * grid ) ; // grid and boundary
 	
 	
         
