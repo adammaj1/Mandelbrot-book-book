@@ -94,7 +94,7 @@ Programs create pgm/ppm files. To convert to png use Image Magic from console:
 
 ### Membership
 
-![Membership rendering](m.png "Membership rendering")
+![Membership rendering](./images/m.png "Membership rendering")
 
 Colour according to whether the iterations diverge to infinity or not, within a
 fixed maximum number of iterations N and escape radius R
@@ -106,7 +106,7 @@ despite appearances the Mandelbrot set is connected.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <stdbool.h>
 
@@ -121,11 +121,11 @@ bool m_membership(int N, double R, double _Complex c)
   }
   return true;
 }
-~~~~
+```
 
 ### Escape Time
 
-![Escape time rendering](et.png "Escape time rendering")
+![Escape time rendering](./images/et.png "Escape time rendering")
 
 Colour according to the integer number of iterations n at which
 ```
@@ -139,7 +139,7 @@ R >= 2
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 int m_escape_time(int N, double R, double _Complex c)
@@ -153,11 +153,11 @@ int m_escape_time(int N, double R, double _Complex c)
   }
   return -1;
 }
-~~~~
+```
 
 ### Binary Decomposition
 
-![Binary decomposition rendering](bd.png "Binary decomposition rendering")
+![Binary decomposition rendering](./images/bd.png "Binary decomposition rendering")
 
 Colour according to the sign of Im(z) (the first escaped iterate).
 Increasing escape radius is
@@ -169,7 +169,7 @@ makes the decomposed cells roughly square.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <stdbool.h>
 
@@ -184,11 +184,11 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
   }
   return true;
 }
-~~~~
+```
 
 ### Continuous Dwell
 
-![Continuous dwell rendering](cd.png "Continuous dwell rendering")
+![Continuous dwell rendering](./images/cd.png "Continuous dwell rendering")
 
 [Linas Vepstas](http://linas.org/art-gallery/escape/escape.html)  derives the renormalized continuous escape time:
 ```
@@ -207,7 +207,7 @@ mu = n + 1 - log(log (|z|))/log(2)
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -222,12 +222,12 @@ double m_continuous_dwell(int N, double R, double _Complex c)
   }
   return -1;
 }
-~~~~
+```
 
 
 ### Final angle
 
-![](fa.png)
+![](./images/fa.png)
 
 
 
@@ -242,7 +242,7 @@ c99 code: [fa.c](fa.c)
  
 ### Final radius
 
-![](fr.png)
+![](./images/fr.png)
 
 
 
@@ -261,7 +261,7 @@ c99 code: [fr.c](fr.c)
 ![](s.png)  
 
 
-~~~~ {.c}
+```c
 if (n < nMax) // exterior 
       {
               
@@ -285,7 +285,7 @@ if (n < nMax) // exterior
         val = 1.0;
       }
 
-~~~
+```
 
 
 c99 code: [s.c](s.c)
@@ -298,12 +298,12 @@ grid showing:
 * how the angle cells double-up within each successive band
 
 
-![](g.png)  
+![](./images/g.png)  
 
 
 
 c99 code: [g.c](g.c)  
-~~~~ {.c}
+```c
 if (n < nMax) // exterior 
       {
        
@@ -324,7 +324,7 @@ if (n < nMax) // exterior
         sat = grid * 0.7; 
         val = 1.0;
       }
-~~~
+```
 
 
 ### improved grid 
@@ -345,8 +345,8 @@ rays of the grid seem to continue along a smooth path towards the Mandelbrot set
 
 
 
-c99 code: [ig.c](ig.c)  
-~~~~ {.c}
+c99 code: [ig.c](./images/ig.c)  
+```c
 if (n < nMax) // exterior 
       {
        
@@ -370,7 +370,7 @@ if (n < nMax) // exterior
         sat = grid * 0.7; 
         val = 1.0;
       }
-~~~
+```
 
 
 ### noise 
@@ -396,7 +396,7 @@ The distance estimate has the useful property (proved in [the Koebe 1/4 theorem]
 
 To contrast with the dark boundary, we fill the interior with white  
 
-![](n.png)  
+![](./images/n.png)  
 
 
 
@@ -410,7 +410,7 @@ In the book it is : 1.32 Removing distracting colour.
 
 The bold colours are now a distraction: they don’t show us anything we can’t see from the grid or the distance estimation. Desaturating the image and making the exterior grid a light grey gives us a clean style that is easy on the eyes.
 
-![](gg.png)  
+![](./images/gg.png)  
 
 
 
@@ -420,7 +420,7 @@ c99 code: [gg.c](gg.c)
 
 ### Exterior Coordinates
 
-![Exterior coordinates rendering](ec.png "Exterior coordinates rendering")
+![Exterior coordinates rendering](./images/ec.png "Exterior coordinates rendering")
 
 Escape radius around R = 25^2 makes the exterior grid cells roughly square.
 The imaginary part of e is linearized to avoid shape distortion.
@@ -437,7 +437,7 @@ of the derivatives must be modified to account for the wrapped space.
 
 [C99 Code](exterior-coordinates.c)
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -454,12 +454,12 @@ double _Complex m_exterior_coordinates(int N, double R, double _Complex c)
   }
   return 0;
 }
-~~~~
+```
 
 
 ### Dwell Gradient
 
-![Dwell gradient rendering](dg.png "Dwell gradient rendering")
+![Dwell gradient rendering](./images/dg.png "Dwell gradient rendering")
 
 
 ```
@@ -485,7 +485,7 @@ as hue for a rainbow colouring of dwell slope.
 
 [C99 Code ](dwell-gradient.c)
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -503,7 +503,7 @@ double _Complex m_dwell_gradient(int N, double R, double s, double d, double _Co
   double vm = sqrt(vx * vx + vy * vy + vz * vz);
   return vz / vm;
 }
-~~~~
+```
 
 ### Exterior Distance
 
@@ -522,7 +522,7 @@ where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/
 
 
 
-![Exterior distance rendering](ed.png "Exterior distance rendering")
+![Exterior distance rendering](./images/ed.png "Exterior distance rendering")
 
 Formalizes the dwell gradient idea, in that closeness of dwell bands is related to closeness to the boundary of the set.  
 
@@ -549,7 +549,7 @@ adaptive supersampling method.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -568,13 +568,13 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
   }
   return -1;
 }
-~~~~
+```
 
 ### Atom domains
 
 Parameter Plain ( Mandelbrot) Atom Domains
 
-![Atom domains rendering](ad.png "Atom domains rendering")
+![Atom domains rendering](./images/ad.png "Atom domains rendering")
 
 Atom domains in the Mandelbrot set are defined as the index $`p \ge 1`$ at which
 $`\left|z_p\right|`$ is minimized during iteration of $`z_0 = 0`$ and
@@ -586,7 +586,7 @@ makes them useful for finding components.
 
 C99 Code : [atom-domains.c](atom-domains.c)
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -607,7 +607,7 @@ int m_atom_domains(int N, double R, double _Complex c)
   }
   return p;
 }
-~~~~
+```
 
 see also : 
 * [gif and code at commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_Atom_Domains_Animation.gif)  
@@ -621,7 +621,7 @@ see also :
 
 One can apply atom domain algorithm only to the exterior and add grid:   
 
-![Atom domains with grid](ad2.png "Atom domains rendering with grid")  
+![Atom domains with grid](./images/ad2.png "Atom domains rendering with grid")  
 
 C99 Code : [ad2.c](ad2.c)  
 
@@ -629,7 +629,7 @@ C99 Code : [ad2.c](ad2.c)
 
 ### Misiurewicz Domains
 
-![Misiurewicz domains rendering](md.png "Misiurewicz domains rendering")
+![Misiurewicz domains rendering](./images/md.png "Misiurewicz domains rendering")
 
 Preperiodic points in the Mandelbrot set are called Misiurewicz points, and
 they have repelling orbits (periodic hyperbolic components have attracting
@@ -644,7 +644,7 @@ point, which makes makes them useful for finding Misiurewicz points.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 int m_misiurewicz_domains(int N, int p, double _Complex c)
@@ -670,11 +670,11 @@ int m_misiurewicz_domains(int N, int p, double _Complex c)
   }
   return q;
 }
-~~~~
+```
 
 ### Interior Coordinates
 
-![Interior coordinates rendering](ic.png "Interior coordinates rendering")
+![Interior coordinates rendering](./images/ic.png "Interior coordinates rendering")
 
 @CHAInteriorCoords derives an algorithm for calculating interior coordinates
 $b$, and it turned out that only periods that are "partials" (corresponding to
@@ -688,7 +688,7 @@ atom domains) need be considered:
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 double _Complex m_interior_coordinates(int N, int M, double _Complex c)
@@ -715,11 +715,11 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
   }
   return 0;
 }
-~~~~
+```
 
 ### Interior Distance
 
-![Interior distance rendering](id.png "Interior distance rendering")
+![Interior distance rendering](./images/id.png "Interior distance rendering")
 
 The formula for interior distance estimation is:
 
@@ -735,7 +735,7 @@ speed-up can be found at the reference.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 #include <math.h>
 
@@ -791,7 +791,7 @@ double m_distance(int N, double R, double _Complex c)
   }
   return 0;
 }
-~~~~
+```
 
 ## Numerical Algorithms
 
@@ -810,7 +810,7 @@ the component (@CHABasins).
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 double _Complex m_nucleus(double _Complex c0, int p, int n)
@@ -829,7 +829,7 @@ double _Complex m_nucleus(double _Complex c0, int p, int n)
 	}
 	return c;
 }
-~~~~
+```
 
 #### Examples
 
@@ -877,7 +877,7 @@ A reasonable starting guess for Newton's method is $`w_0 = F^p(0, c)`$.
 
 C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
@@ -896,7 +896,7 @@ double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
 	}
 	return w;
 }
-~~~~
+```
 
 #### Examples
 
@@ -956,7 +956,7 @@ F^p(w_m,b_m) - w_m \\
 
 #### C99 Code
 
-~~~~ {.c}
+```c
 #include <complex.h>
 
 void m_interior_point
@@ -990,7 +990,7 @@ void m_interior_point
 	*z_out = zz;
 	*c_out = cc;
 }
-~~~~
+```
 
 #### Examples
 
@@ -1757,4 +1757,16 @@ git add .
 git commit -m "Initial commit"
 git push -u origin master
 ```
+## subdirectories
+
+```
+mkdir images
+git add *.png
+git mv  *.png ./images
+git commit -m "move"
+git push -u origin master
+```
+
+
+
 
