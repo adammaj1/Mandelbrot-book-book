@@ -188,12 +188,9 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 
 [Algorithm by hobold](https://fractalforums.org/fractal-mathematics-and-new-theories/28/plotting-field-lines-during-iteration/4233/new#new) 
 * Let's remove the iteration bands and change the relative sizes of black and white checkerboard areas.
-* The pattern in the 2nd image was done by looking at the final value of the iterated Z_n, just after it escapes. The usual checkerboarded "binary decomposition" looks at just the sign of the imaginary part. But you really can choose any axis through the origin and color based on what side of the axis you end up on. Or you can choose a sector smaller than 180 degrees like I did
+* The pattern in the 2nd image was done by looking at the final value of the iterated Z_n, just after it escapes. The usual checkerboarded "binary decomposition" looks at just the sign of the imaginary part. But you really can choose any axis through the origin and color based on what side of the axis you end up on. Or you can choose a sector smaller than 180 degrees like I did: return (fabs(z.x)*0.1 < fabs(z.y));
 * The bailout radius needs to be reasonably large for those field lines to align nicely between iteration bands. Because this analogy with field lines is only strictly true for an infinite bailout. So with a minimal bailout radius of 2.0, the binary decomposition ends up being very visibly distorted and misaligned.
 
-```
-return (fabs(z.x)*0.1 < fabs(z.y));
-``` 
 
 ![field-lines.png](./images/field-lines.png)
 
