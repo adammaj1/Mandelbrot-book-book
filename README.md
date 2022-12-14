@@ -194,7 +194,7 @@ color of the pixel depends on the position of final z
 ```c
 img[j * w + i] = (k < kMax && fabs(creal(z))*0.1 < fabs(cimag(z))) ? 255 : 0;
 ```
-The image shows lines 
+The image shows lines that aproximate external rays of angles (measured in turns) $angle = \frac{k}{2^n}  \text{mod 1}$
 
 ### Continuous Dwell
 
