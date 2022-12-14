@@ -10,10 +10,11 @@ link-citations: true
 
 [Algorithms](README.md#algorithms)
 
-Grapical algorithms
+[Grapical algorithms](https://en.wikibooks.org/wiki/Fractals#Algorithms) =  methods of drawing/computing = [representation finctions](https://mrob.com/pub/muency/representationfunction.html)
 * [membership](README.md#membership)
 * [Escape Time](README.md#escape-time)
 * [Binary Decomposition](README.md#binary-decomposition)
+* [Field lines](README.md#field-lines)
 * [Continuous Dwell](README.md#continuous-dwell)
 * [Final angle](README.md#final-angle)
 * [Final radius](README.md#final-radius)
@@ -189,6 +190,8 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
   return true;
 }
 ```
+### Field lines
+
 
 ### Continuous Dwell
 
