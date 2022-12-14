@@ -156,34 +156,27 @@ int m_escape_time(int N, double R, double _Complex c)
 
 ### Binary Decomposition
 
+[Binary decomposition of the Mandelbrot set exterior](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/MandelbrotSetExterior#Binary_decomposition_of_LSM/M)
+
+
 ![Binary decomposition rendering](./images/bd.png "Binary decomposition rendering")
 
-Colour according to the sign of Im(z) (the first escaped iterate).
-Increasing escape radius is
-necessary to align edges between layers.  Escape radius around 
-```
-R = 25
-```
-makes the decomposed cells roughly square.
+Colour according to the sign of Im(z) (the first escaped iterate). Increasing escape radius is necessary to align edges between layers. Escape radius around ER = 25  makes the decomposed cells roughly square.
 
-C99 Code
+
+[C99 Code](./src/binary-decomposition.c)
+
+color of the pixel depends on:
+* the sign of the imaginary part of final z ( cimag(z) )
+* position of final z with repect to the horizontal axis ( x-axis)
 
 ```c
-#include <complex.h>
-#include <stdbool.h>
-
-bool m_binary_decomposition(int N, double R, double _Complex c)
-{
-  double _Complex z = 0;
-  for (int n = 0; n < N; ++n)
-  {
-    if (cabs(z) > R)
-      return cimag(z) > 0;
-    z = z * z + c;
-  }
-  return true;
-}
+img[j * w + i] = (k < kMax && cimag(z) < 0) ? 0 : 255; 
 ```
+
+External rays of angles (measured in turns) $angle = (k / 2^n ) mod 1$ can be seen as borders of cells. 
+
+
 ### Field lines
 
 [Algorithm by hobold](https://fractalforums.org/fractal-mathematics-and-new-theories/28/plotting-field-lines-during-iteration/4233/new#new) 
@@ -194,12 +187,14 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 
 ![field-lines.png](./images/field-lines.png)
 
-C99 Code
+[C99 Code](./src/field-lines.c)
 
+
+color of the pixel depends on the position of final z 
 ```c
-//  fabs(z.x)*0.1 < fabs(z.y)   
 img[j * w + i] = (k < kMax && fabs(creal(z))*0.1 < fabs(cimag(z))) ? 255 : 0;
 ```
+The image shows lines 
 
 ### Continuous Dwell
 
