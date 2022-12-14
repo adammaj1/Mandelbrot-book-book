@@ -1,9 +1,3 @@
----
-title: Mandelbook
-link-citations: true
----
-
-
 # TOC
 
 [Description](README.md#description)
@@ -192,6 +186,14 @@ bool m_binary_decomposition(int N, double R, double _Complex c)
 ```
 ### Field lines
 
+![field-lines.png](./images/field-lines.png)
+
+C99 Code
+
+```c
+//  fabs(z.x)*0.1 < fabs(z.y)   
+img[j * w + i] = (k < kMax && fabs(creal(z))*0.1 < fabs(cimag(z))) ? 255 : 0;
+```
 
 ### Continuous Dwell
 
