@@ -1745,32 +1745,74 @@ $`\left( .\overline{01001}, .\overline{01010} \right)`$
 
 
 
-# technical notes
-GitLab uses:
-* the Redcarpet Ruby library for [Markdown processing](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md)
-* [KaTeX](https://khan.github.io/KaTeX/) to render [math written with the LaTeX syntax](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md), but [only subset](https://khan.github.io/KaTeX/function-support.html). [Here is used version](https://github.com/gitlabhq/gitlabhq/blob/a0715f079c143a362a7f6157db45020b8432003e/vendor/assets/javascripts/katex.js)
 
+# Git
 
-## git ( gitlab)
-
+create a new repository on the command line
 ```
-cd existing_folder
 git init
-git remote add origin git@gitlab.com:adammajewski/mandelbrot-book_book.git
-git add .
-git commit -m "Initial commit"
-git push -u origin master
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:adammaj1/Mandelbrot-book-book.git
+git push -u origin main
 ```
-## subdirectories
+
+
+## Repo
+
+Change:
+* in general settings
+  * add Social Preview Image ( Images should be at least 640×320px (1280×640px for best display))
+* in repository details ( near About) add
+  * description
+  * website 
+  * Topics (separate with spaces) 
+  
+
+Local repository
 
 ```
-mkdir images
+~/Mandelbrot-book-book
+```
+
+
+
+
+
+## Subdirectory
+
+```git
+mkdir png
 git add *.png
-git mv  *.png ./images
+git mv  *.png ./png
 git commit -m "move"
-git push -u origin master
+git push -u origin main
+```
+then link the images:
+
+```txt
+![](./png/n.png "description") 
+
+```
+
+to overwrite
+
+```
+git mv -f 
+```
+
+```
+git mv ./src/*.c ./src/modified/bash/
+git mv ./src/*.sh ./src/modified/bash/
+gitt mv ./src/Makefile ./src/modified/bash/
 ```
 
 
 
+## Github
+* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+* [md cheat sheet](http://mdcheatsheet.com/)
+* [CommonMark Spec](https://spec.commonmark.org)
+* [Markdown parser ](https://markdown-it.github.io/)
 
