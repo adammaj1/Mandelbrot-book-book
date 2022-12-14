@@ -174,7 +174,7 @@ color of the pixel depends on:
 img[j * w + i] = (k < kMax && cimag(z) < 0) ? 0 : 255; 
 ```
 
-External rays of angles (measured in turns) $angle = (k / 2^n ) mod 1$ can be seen as borders of cells. 
+External rays of angles (measured in turns) $angle = \frac{k}{2^n}  \text{mod 1}$ can be seen as borders of cells. 
 
 
 ### Field lines
