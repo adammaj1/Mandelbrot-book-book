@@ -1365,8 +1365,7 @@ Therefore the external angles for the $`\frac{2}{5}`$ bulb are:
 $`\left( .\overline{01001}, .\overline{01010} \right)`$
 
 ### The Farey Tree
-
-@CHAFarey
+ [Finding parents in the Farey tree by Claude Heiland-Allen](https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html)
 
 ### Lavaurs' Algorithm
 
@@ -1726,19 +1725,11 @@ $`\left( .\overline{01001}, .\overline{01010} \right)`$
   url="https://mathr.co.uk/blog/2016-04-27_pi_in_the_mandelbrot_set.html"
 }
 
-@misc{CHAJuliaDim,
-  author="Claude Heiland-Allen",
-  title="Fractal dimension of Julia sets",
-  date="2016-05-16",
-  url="https://mathr.co.uk/blog/2016-05-16_fractal_dimension_of_julia_sets.html"
-}
 
-@misc{CHAFarey,
-  author="Claude Heiland-Allen",
-  title="Finding parents in the Farey tree",
-  date="2016-10-31",
-  url="https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html"
-}
+# ref
+* [Fractal dimension of Julia sets by Claude Heiland-Allen 2016-05-16](https://mathr.co.uk/blog/2016-05-16_fractal_dimension_of_julia_sets.html)
+
+
 
 
 
@@ -1815,4 +1806,9 @@ gitt mv ./src/Makefile ./src/modified/bash/
 * [md cheat sheet](http://mdcheatsheet.com/)
 * [CommonMark Spec](https://spec.commonmark.org)
 * [Markdown parser ](https://markdown-it.github.io/)
+
+
+Math equation inside README.md
+* $\sqrt{3x-1}+(1+x)^2$
+* \(\sqrt{3x-1}+(1+x)^2\)
 
