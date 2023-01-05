@@ -27,13 +27,14 @@
 
 
 [Numerical algorithms](README.md#numerical-algorithms)
+* [Period](README.md#period)
 * [Nucleus](README.md#nucleus)
 * [Attractot](README.md#attractor)
 * [Interior point](README.md#interior-point)
 * [Misiurewicz point](README.md#misiurewicz-point)
 * [Child sizes](README.md#child-sizes)
 * [Size estimate](README.md#size-estimate)
-* [Shape estimate](README.md#shape estimate)
+* [Shape estimate](README.md#shape-estimate)
 * [Domain size](domain-size)
 * [External ray in](README.md#external-ray-in)
 * [External ray out](README.md#external-ray-out)
@@ -851,7 +852,7 @@ double _Complex m_nucleus(double _Complex c0, int p, int n)
 
 Examples
 
-$c_0 = -1.8`$, $`p = 3$:
+$c_0 = -1.8$, $p = 3$:
 
 ```
 \begin{aligned}
@@ -863,7 +864,7 @@ c_4 &= -1.7548776662466929(\ldots)
 \end{aligned}
 ```
 
-$c_0 = i`$, $`p = 4$:
+$c_0 = i$, $p = 4$:
 
 ```
 \begin{aligned}
@@ -883,16 +884,15 @@ c_{10} &= -0.15652016683375508(\ldots) &+ 1.0322471089228318(\ldots) i
 
 ### Attractor
 
-The attractor $`w`$ of a point $`c`$ within a hyperbolic component
-of period $`p`$ consists of $`p`$ points, each satisfying:
+The attractor $w$ of a point $c$ within a hyperbolic component of period $p$ consists of $p$ points, each satisfying:
 
-$`F^p(w,c) = w`$
+$F^p(w,c) = w$
 
 Applying Newton's method in one complex variable:
 
-$` w_{m+1} = w_m - \frac{F^p(w_m, c) - w_m}{\frac{\partial}{\partial z}F^p(w_m, c) - 1}`$
+$ w_{m+1} = w_m - \frac{F^p(w_m, c) - w_m}{\frac{\partial}{\partial z}F^p(w_m, c) - 1}$
 
-A reasonable starting guess for Newton's method is $`w_0 = F^p(0, c)`$.
+A reasonable starting guess for Newton's method is $w_0 = F^p(0, c)$.
 
 C99 Code
 
@@ -917,9 +917,9 @@ double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
 }
 ```
 
-#### Examples
+Examples
 
-$`c = 0.5 i`$, $`p = 1`$:
+$c = 0.5 i$, $p = 1$:
 
 ```
 \begin{aligned}
@@ -932,7 +932,7 @@ w_5 &= -0.13600982475703449(\ldots) &+ 0.39307568887871164(\ldots) i
 \end{aligned}
 ```
 
-$`c = -1.1 + 0.1 i`$, $`p = 2`$:
+$c = -1.1 + 0.1 i$, $p = 2$:
 ```
 \begin{aligned}
 w_0 &= 0.1 &- 0.12 i \\
