@@ -168,9 +168,12 @@ int main(void){
 	int p = m_d_box_period_do(c, 4.0 * cabs(dc), maxiters);
 	fprintf(stdout, "c = %.16f %+.16f \t period = %d\n", creal(c), cimag(c),p);
 	
-	 // refine the nucleus location (uses Newton's method)
-        if (m_converged == m_d_nucleus(&c0, c0, p, 16))
-        
+	// next steps
+	// refine the nucleus location (uses Newton's method)
+	//if (m_converged == m_d_nucleus(&c0, c0, p, 16))
+	// verify the period with a small box
+	// if the period is wrong, the size estimates will be way off
+	//as[atoms].period = m_d_box_period_do(c0, 0.001 * cabs(dc0), 2 * p);
       
 
 	return 0;
