@@ -1379,8 +1379,8 @@ Therefore the external angles for the $`\frac{2}{5}`$ bulb are:
 
 $`\left( .\overline{01001}, .\overline{01010} \right)`$
 
-### The Farey Tree
- [Finding parents in the Farey tree by Claude Heiland-Allen](https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html)
+### 
+
 
 ### Lavaurs' Algorithm
 
@@ -1421,13 +1421,11 @@ $`\left( .\overline{01001}, .\overline{01010} \right)`$
 @CHASeriesApprox
 @CHACodeGen
 
-### Zoom Interpolation
 
-[FIXME](https://mathr.co.uk/blog/2010-08-31_optimizing_zoom_animations.html)
 
-### Poincaré Zoom
 
-[FIXME](https://mathr.co.uk/blog/2011-12-26_poincare_half-plane_metric_for_zoom_animation.html)
+
+
 
 ### Exponential Map
 
@@ -1712,42 +1710,17 @@ $`\left( .\overline{01001}, .\overline{01010} \right)`$
   url="https://mathr.co.uk/blog/2016-03-05_julia_morphing_symmetry.html"
 }
 
-@misc{CHASeriesApprox,
-  author="Claude Heiland-Allen",
-  title="Simpler series approximation",
-  date="2016-03-06",
-  url="https://mathr.co.uk/blog/2016-03-06_simpler_series_approximation.html"
-}
 
-@misc{CHASymbolics,
-  author="Claude Heiland-Allen",
-  title="Mandelbrot symbolics in the browser",
-  date="2016-03-14",
-  url="https://mathr.co.uk/blog/2016-03-14_mandelbrot_symbolics_in_the_browser.html"
-}
-
-@misc{CHAVectorBuddha,
-  author="Claude Heiland-Allen",
-  title="Vector Buddhabrot",
-  date="2016-04-11",
-  url="https://mathr.co.uk/blog/2016-04-11_vector_buddhabrot.html"
-}
-
-@misc{CHAPi,
-  author="Claude Heiland-Allen",
-  title="PI in the Mandelbrot Set",
-  date="2016-04-27",
-  url="https://mathr.co.uk/blog/2016-04-27_pi_in_the_mandelbrot_set.html"
-}
 
 
 # ref
 * [Fractal dimension of Julia sets by Claude Heiland-Allen 2016-05-16](https://mathr.co.uk/blog/2016-05-16_fractal_dimension_of_julia_sets.html)
-
-
-
-
-
+* [PI in the Mandelbrot Set](https://mathr.co.uk/blog/2016-04-27_pi_in_the_mandelbrot_set.html)
+* [Mandelbrot symbolics in the browser](https://mathr.co.uk/blog/2016-03-14_mandelbrot_symbolics_in_the_browser.html)
+* [Simpler series approximation](https://mathr.co.uk/blog/2016-03-06_simpler_series_approximation.html)
+* [Poincaré Zoom](https://mathr.co.uk/blog/2011-12-26_poincare_half-plane_metric_for_zoom_animation.html)
+* [Zoom Interpolation](https://mathr.co.uk/blog/2010-08-31_optimizing_zoom_animations.html)
+* [The Farey Tree: Finding parents in the Farey tree by Claude Heiland-Allen](https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html)
 
 
 
