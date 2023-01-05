@@ -805,6 +805,15 @@ double m_distance(int N, double R, double _Complex c)
 
 ## Numerical Algorithms
 
+### Period
+* [periodicity scan](https://mathr.co.uk/blog/2017-05-17_periodicity_scan.html) - scanning parameter plane and finding period of each point c = period of each componnet. Here  [Robert P. Munafo's Jordan curve method](https://www.mrob.com/pub/muency/period.html) and Newton method is used 
+* [c code:  box period ](./src/m-box-period.c)
+
+
+
+
+
+
 ### Nucleus
 
 The nucleus $`c`$ of a hyperbolic component of period $`p`$ satisfies:
