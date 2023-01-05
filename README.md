@@ -808,7 +808,7 @@ double m_distance(int N, double R, double _Complex c)
 ### Period
 * [periodicity scan](https://mathr.co.uk/blog/2017-05-17_periodicity_scan.html) - scanning parameter plane and finding period of each point c = period of each componnet. Here  [Robert P. Munafo's Jordan curve method](https://www.mrob.com/pub/muency/period.html) and Newton method is used 
 * [c code:  box period ](./src/m-box-period.c)
-
+* [original c code ](https://code.mathr.co.uk/mandelbrot-numerics/blob/HEAD:/c/bin/m-box-period.c)
 
 
 
@@ -816,16 +816,15 @@ double m_distance(int N, double R, double _Complex c)
 
 ### Nucleus
 
-The nucleus $`c`$ of a hyperbolic component of period $`p`$ satisfies:
+The nucleus $c$ of a hyperbolic component of period $p$ satisfies:
 
-$`F^p(0,c) = 0`$
+$F^p(0,c) = 0$
 
 Applying Newton's method in one complex variable:
 
-$`c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}`$
+$c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}$
 
-A reasonable starting guess for Newton's method is within the atom domain of
-the component (@CHABasins).
+A reasonable starting guess for Newton's method is within [the atom domain of the component](https://mathr.co.uk/blog/2012-12-25_mandelbrot_set_newton_basins.html). 
 
 C99 Code
 
@@ -850,9 +849,10 @@ double _Complex m_nucleus(double _Complex c0, int p, int n)
 }
 ```
 
-#### Examples
+Examples
 
-$`c_0 = -1.8`$, $`p = 3`$:
+$c_0 = -1.8`$, $`p = 3$:
+
 ```
 \begin{aligned}
 c_0 &= -1.8 \\
@@ -863,7 +863,7 @@ c_4 &= -1.7548776662466929(\ldots)
 \end{aligned}
 ```
 
-$`c_0 = i`$, $`p = 4`$:
+$c_0 = i`$, $`p = 4$:
 
 ```
 \begin{aligned}
@@ -1825,5 +1825,5 @@ gitt mv ./src/Makefile ./src/modified/bash/
 
 Math equation inside README.md
 * $\sqrt{3x-1}+(1+x)^2$
-* \(\sqrt{3x-1}+(1+x)^2\)
+
 
