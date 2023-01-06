@@ -600,7 +600,7 @@ makes them useful for finding components.
 
 
 
-C99 Code : [atom-domains.c](atom-domains.c)
+C99 Code : [atom-domains.c](./src/atom-domains.c)
 
 ```c
 #include <complex.h>
