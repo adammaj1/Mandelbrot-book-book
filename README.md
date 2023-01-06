@@ -823,17 +823,17 @@ Applying Newton's method in one complex variable:
 
 $c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}$
 
-A reasonable starting guess for Newton's method is within [the atom domain of the component](https://mathr.co.uk/blog/2012-12-25_mandelbrot_set_newton_basins.html). 
+A reasonable starting guess $c_0$ for Newton's method is within [the atom domain of the component](https://mathr.co.uk/blog/2012-12-25_mandelbrot_set_newton_basins.html). 
 
 C99 Code
 
 ```c
 #include <complex.h>
 
-double _Complex m_nucleus(double _Complex c0, int p, int n)
+double _Complex m_nucleus(double _Complex c0, int period, int mMax)
 {
 	double _Complex c = c0;
-	for (int m = 0; m < n, ++m)
+	for (int m = 0; m < mMax, ++m)
 	{
 		double _Complex z = 0;
 		double _Complex dc = 0;
@@ -876,6 +876,14 @@ c_8 = -0.15652016683375505    + 1.0322471089228318 i
 c_9 = -0.15652016683375503    + 1.0322471089228318 i 
 c_{10} = -0.15652016683375508 + 1.0322471089228318 i
 ```
+
+
+Code
+* [nucleus.c](./src/nucleus.c) - simple one function
+* [m_d_nucleus.c](./src/m_d_nucleus.c) - complex function
+* original file [m-nucleus.c](https://code.mathr.co.uk/mandelbrot-numerics/blob/HEAD:/c/bin/m-nucleus.c) which uses [m_d_nucleus.c](https://code.mathr.co.uk/mandelbrot-numerics/blob/HEAD:/c/lib/m_d_nucleus.c)
+
+
 
 ### Attractor
 
