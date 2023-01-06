@@ -1106,21 +1106,15 @@ Cardioid $`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
 
 ### Shape Estimate
 
-@Dolotin2008 [eq. 5.8] derive a shape estimate $`s`$,
-with derivatives evaluated at $`F^p(0,c)`$ where $`c`$ is a nucleus
-of period $`p`$:
+@Dolotin2008 [eq. 5.8] derive a shape estimate $s$, with derivatives evaluated at $F^p(0,c)$ where $c$ is a nucleus of period $p$:
 
-```
-s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)
-                 \left(\frac{\partial}{\partial z}\right)}
-        \left(\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial c}}
-                   {2 \frac{\partial}{\partial c}} +
-              \frac{\frac{\partial}{\partial c}\frac{\partial}{\partial z}}
-                   {  \frac{\partial}{\partial z}}\right)
-```
+$
+s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)\left(\frac{\partial}{\partial z}\right)} \left(\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial c}} {2 \frac{\partial}{\partial c}} +\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial z}}{  \frac{\partial}{\partial z}}\right)$
 
-$`s \approx 0`$ corresponds to cardioid-like shapes.  
-$`s \approx 1`$ corresponds to circle-like shapes.  
+
+$s \approx 0$ corresponds to cardioid-like shapes.  
+$s \approx 1$ corresponds to circle-like shapes.  
+
 
 #### C99 Code
 
@@ -1154,13 +1148,13 @@ bool m_shape_is_cardioid(double _Complex s)
 }
 ```
 
-#### Examples
+Examples
 
-$`c = -0.12256116687665361 + 0.74486176661974424 i`$, $`p = 3`$:  
-$`s = 1.0212516030641008 + 0.047630153362811116 i \approx 1`$
+$c = -0.12256116687665361 + 0.74486176661974424 i$, $p = 3$:  
+$s = 1.0212516030641008 + 0.047630153362811116 i \approx 1$
 
-$`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
-$`s = 0.058425597199448037 + 0.084498085298473649 i \approx 0`$
+$c = -0.15652016683375508 + 1.0322471089228318 i$, $p = 4$:
+$s = 0.058425597199448037 + 0.084498085298473649 i \approx 0$
 
 ### Domain Size
 
