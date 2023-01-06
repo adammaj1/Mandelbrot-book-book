@@ -734,7 +734,8 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 The formula for interior distance estimation is:
 
-$d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
+$d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}$
+
 {\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} +
 \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right)
 \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
