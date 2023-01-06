@@ -444,7 +444,7 @@ image texture, but care must be taken to avoid glitches at the cell boundaries
 if automatic derivatives are used for mipmapped anti-aliasing.  The calculation
 of the derivatives must be modified to account for the wrapped space.
 
-@CHADancing has an example of animating image texture during a zoom video.
+[dancing angels](https://mathr.co.uk/blog/2012-12-25_dancing_angels.html) has an example of animating image texture during a zoom video.
 
 [C99 Code](./src/exterior-coordinates.c)
 
@@ -518,7 +518,7 @@ double _Complex m_dwell_gradient(int N, double R, double s, double d, double _Co
 
 ### Exterior Distance
 
-
+DEM/M = Distance Estimation Method for Mandelbrot set
 
 Given c outside the Mandelbrot set, the exterior distance estimate satisfies by 
 
@@ -539,13 +539,13 @@ Formalizes the dwell gradient idea, in that closeness of dwell bands is related 
 
 
 
-the Koebe $`\frac{1}{4}`$ Theorem:
+the Koebe $\frac{1}{4}$ Theorem:
 * No point in the Mandelbrot set is within d/4
 * There is a point in the Mandelbrot set within 4 d  
 
 Compare with pixel spacing to know if the Mandelbrot set might intersect a pixel.  
 
-Colouring (shading) using $`t = \tanh \frac{d}{\text{pixel size}}`$ works well because $`t \in [0,1)`$ and $`\tanh 4 \approx 1`$.  
+Colouring (shading) using $t = \tanh \frac{d}{\text{pixel size}}$ works well because $t \in [0,1)$ and $\tanh 4 \approx 1$.  
 
 A complex-valued distance estimate (with directional information) can be calculated by:
 
@@ -581,15 +581,20 @@ double _Complex m_exterior_distance(int N, double R, double _Complex c)
 }
 ```
 
+Code
+* [exterior-distance.c](./src/exterior-distance.c)
+
+
+
 ### Atom domains
 
 Parameter Plain ( Mandelbrot) Atom Domains
 
 ![Atom domains rendering](./images/ad.png "Atom domains rendering")
 
-Atom domains in the Mandelbrot set are defined as the index $`p \ge 1`$ at which
-$`\left|z_p\right|`$ is minimized during iteration of $`z_0 = 0`$ and
-$`z_{n+1} = z_n^2 + c`$. Atom domains surround hyperbolic components of the same
+Atom domains in the Mandelbrot set are defined as the index $p \ge 1$ at which
+$\left|z_p\right|$ is minimized during iteration of $z_0 = 0$ and
+$z_{n+1} = z_n^2 + c$. Atom domains surround hyperbolic components of the same
 period, and are generally much larger than the components themselves, which
 makes them useful for finding components.
 
@@ -925,45 +930,35 @@ Examples
 $c = 0.5 i$, $p = 1$:
 
 ```
-\begin{aligned}
-w_0 &= & 0.5 i \\
-w_1 &= -0.1(2500000000000000\ldots) &+ 0.3(7500000000000000\ldots) i \\
-w_2 &= -0.1360(2941176470587\ldots) &+ 0.393(38235294117646\ldots) i \\
-w_3 &= -0.136009(77572623132\ldots) &+ 0.393075(72864807383\ldots) i \\
-w_4 &= -0.13600982475703(358\ldots) &+ 0.3930756888787(0914\ldots) i \\
-w_5 &= -0.13600982475703449(\ldots) &+ 0.39307568887871164(\ldots) i
-\end{aligned}
+w_0 = & 0.5 i 
+w_1 = -0.12500000000000000 + 0.37500000000000000i 
+w_2 = -0.13602941176470587 + 0.39338235294117646 i
+w_3 = -0.13600977572623132 + 0.39307572864807383 i
+w_4 = -0.13600982475703358 + 0.39307568887870914 i
+w_5 = -0.13600982475703449 + 0.39307568887871164 i
 ```
 
 $c = -1.1 + 0.1 i$, $p = 2$:
 ```
-\begin{aligned}
-w_0 &= 0.1 &- 0.12 i \\
-w_1 &= 0.09(5782435714904968\ldots) &- 0.08(4585559740811250\ldots) i \\
-w_2 &= 0.09749(9098252211647\ldots) &- 0.0836(77122424611575\ldots) i \\
-w_3 &= 0.097497068(763801931\ldots) &- 0.0836824188(71189990\ldots) i \\
-w_4 &= 0.097497068806210202(\ldots) &- 0.083682418894370822(\ldots) i
-\end{aligned}
+w_0 = 0.1 - 0.12 i 
+w_1 = 0.095782435714904968 - 0.084585559740811250 i 
+w_2 = 0.097499098252211647 - 0.083677122424611575 i 
+w_3 = 0.097497068763801931 - 0.083682418871189990 i 
+w_4 = 0.097497068806210202 - 0.083682418894370822 i
 ```
 
 ### Interior Point
 
-The interior point $`b`$
-at internal angle $`\theta`$ measured in turns and internal radius $`r \in [0,1]`$
-within a hyperbolic component of period $`p`$
-satisfies:
-```
-\begin{aligned}
-F^p(w,b) &= w \\
-\fr`ac{\partial}{\partial z}F^p(w,b) &= r e^{2 \pi i \theta} = t
-\end{aligned}`
-```
+The interior point $b$ at internal angle $\theta$ measured in turns and internal radius $r \in [0,1]$ within a hyperbolic component of period $p$ satisfies:
+
+$F^p(w,b) = w $
+$\frac{\partial}{\partial z}F^p(w,b) = r e^{2 \pi i \theta} = t$
+
 
 Applying Newton's method in two complex variables:
 
 
-```
-\left(\begin{matrix}
+$\left(\begin{matrix}
 \frac{\partial}{\partial z}F^p(w_m,b_m) - 1 &
 \frac{\partial}{\partial c}F^p(w_m,b_m) \\
 \frac{\partial}{\partial z}\frac{\partial}{\partial z}F^p(w_m,b_m) &
@@ -973,8 +968,8 @@ w_{m+1} - w_m \\
 b_{m+1} - b_m\end{matrix}\right) = -\left(\begin{matrix}
 F^p(w_m,b_m) - w_m \\
 \frac{\partial}{\partial z}F^p(w_m,b_m) - t
-\end{matrix}\right)
-```
+\end{matrix}\right)$
+
 
 #### C99 Code
 
