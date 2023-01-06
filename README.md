@@ -1085,24 +1085,17 @@ double _Complex m_size_estimate(double _Complex c, int p)
 }
 ```
 
-#### Examples
+Examples
 
-Cardioid $`c = 0`$, $`p = 1`$:
-$`|s| = 1`$
+Cardioid $c = 0$, $p = 1$: $|s| = 1$
 
-Circle $`c = -1`$, $`p = 2`$:
-$`|s| = \frac{1}{2}`$
+Circle $c = -1$, $p = 2$: $|s| = \frac{1}{2}$
 
-Cardioid $`c = -1.7548776662466927`$, $`p = 3`$:
-$`|s| = 0.019035515913132451`$ 
+Cardioid $c = -1.7548776662466927$, $p = 3$: $|s| = 0.019035515913132451$ 
 
-Cardioid $`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
-```
-\begin{aligned}
-|s| &= 0.0084828587005172946 \\
-\arg s &= -0.61719885061563229
-\end{aligned}
-```
+Cardioid $c = -0.15652016683375508 + 1.0322471089228318 i$, $p = 4$: $|s| = 0.0084828587005172946 arg(s) = -0.61719885061563229$
+
+
 
 
 
@@ -1157,6 +1150,13 @@ $s = 1.0212516030641008 + 0.047630153362811116 i \approx 1$
 
 $c = -0.15652016683375508 + 1.0322471089228318 i$, $p = 4$:
 $s = 0.058425597199448037 + 0.084498085298473649 i \approx 0$
+
+
+Code
+* [shape.c](./src/shape.c)
+* [m-shape.c from numerics library](https://code.mathr.co.uk/mandelbrot-numerics/blob_plain/HEAD:/c/bin/m-shape.c)
+
+
 
 ### Domain Size
 
