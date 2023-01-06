@@ -1104,12 +1104,14 @@ Cardioid $`c = -0.15652016683375508 + 1.0322471089228318 i`$, $`p = 4`$:
 \end{aligned}
 ```
 
+
+
+
 ### Shape Estimate
 
-@Dolotin2008 [eq. 5.8] derive a shape estimate $s$, with derivatives evaluated at $F^p(0,c)$ where $c$ is a nucleus of period $p$:
+[Dolotin in paper "On the shapes of elementary domains or why Mandelbrot Set is made from almost ideal circles?" eq. 5.8](https://arxiv.org/abs/hep-th/0701234v1) derive a shape estimate $s$, with derivatives evaluated at $F^p(0,c)$ where $c$ is a nucleus of period $p$:
 
-$
-s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)\left(\frac{\partial}{\partial z}\right)} \left(\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial c}} {2 \frac{\partial}{\partial c}} +\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial z}}{  \frac{\partial}{\partial z}}\right)$
+$s = - \frac{1}{\left(\frac{\partial}{\partial c}\right)\left(\frac{\partial}{\partial z}\right)} \left(\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial c}} {2 \frac{\partial}{\partial c}} +\frac{\frac{\partial}{\partial c}\frac{\partial}{\partial z}}{  \frac{\partial}{\partial z}}\right)$
 
 
 $s \approx 0$ corresponds to cardioid-like shapes.  
