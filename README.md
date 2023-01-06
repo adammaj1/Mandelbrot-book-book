@@ -647,7 +647,7 @@ they have repelling orbits (periodic hyperbolic components have attracting
 orbits). Atom domains show the period with the preperiod fixed at $0$, while
 for Misiurewicz domains show the preperiod with the period fixed.
 
-@CHAMisiurewiczDomains
+[MisiurewiczDomains](https://mathr.co.uk/blog/2015-01-26_newtons_method_for_misiurewicz_points.html)
 defines the Misiurewicz domain for period $p \ge 1$ as the index $q$ at which
 $\left|z_{p + q} - z_q\right|$ is minimized.  Misiurewicz domains surround
 Misiurewicz points whose period divides $p$, and are much larger than a single
@@ -734,13 +734,14 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 The formula for interior distance estimation is:
 
-$`d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
+$d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}
 {\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} +
 \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right)
-\left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}`$
-where the derivatives are evaluated at $`z_0`$ satisfying $`F^p(z_0, c) = z_0`$.
+\left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
 
-Following @CHAInteriorDE, simple code for distance estimate rendering now
+where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$.
+
+Following page [Practical interior distance rendering](https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html), simple code for distance estimate rendering now
 looks something as follows; more involved algorithms that provide a significant
 speed-up can be found at the reference.
 
