@@ -1009,18 +1009,13 @@ void m_interior_point
 }
 ```
 
-#### Examples
+Examples
 
-$`r = 1`$, $`\theta = \frac{1}{3}`$, $`p = 1`$
+$r = 1$, $\theta = \frac{1}{3}$, $p = 1$
 ```
-\begin{aligned}
-w_0 &= 0 \\
-b_0 &= 0 \\
-w_1 &= -0.24999999999999989 + 0.43301270189221935 i \\
-b_1 &= -0.24999999999999989 + 0.43301270189221935 i \\
-w_2 &= -0.24999999999999989 + 0.43301270189221935 i \\
-b_2 &= -0.12499999999999978 + 0.64951905283832900 i
-\end{aligned}
+w_0 = 0 b_0 = 0 
+w_1 = -0.24999999999999989 + 0.43301270189221935 i b_1 = -0.24999999999999989 + 0.43301270189221935 i
+w_2 = -0.24999999999999989 + 0.43301270189221935 i b_2 = -0.12499999999999978 + 0.64951905283832900 i
 ```
 
 ### Misiurewicz Point
@@ -1030,36 +1025,25 @@ b_2 &= -0.12499999999999978 + 0.64951905283832900 i
 
 ### Child Sizes
 
-Child of a cardioid of size $`s`$ at internal angle $`\frac{p}{q}`$ has size
+Child of a cardioid of size $s$ at internal angle $\frac{p}{q}$ has size
 approximately:
-$`s' = \frac{s}{q^2} \sin\left(\pi \frac{p}{q}\right)`$
+$s' = \frac{s}{q^2} \sin\left(\pi \frac{p}{q}\right)$
 
-Child of a circle of size $`s`$ at internal angle $`\frac{p}{q}`$ has size
+Child of a circle of size $s$ at internal angle $\frac{p}{q}$ has size
 approximately:
-$`s' = \frac{s}{q^2}`$
+$s' = \frac{s}{q^2}$
 
 ### Size Estimate
 
 @MSetENotes2013 presents a method to estimate the size of a hyperbolic component:
 
-> Under iterations the critical orbit of period $`p`$ consecutively cycles
-> through $`p`$ narrow intervals $`S_1 \to S_2 \to \ldots \to S_1`$ each of width
-> $`s_j`$ (we choose $`S_1`$ to include the critical point $`z = 0`$).
-> We expand $`F^p(z, c)`$ for small $`z`$ (in the narrow central interval $`S_1`$)
-> and $`c`$ near its value $`c_0`$ at superstability of period-$`p`$ attracting
-> orbit. We see that the $`s_j`$ are small and the map in the intervals
-> $`S_2, S_3, \ldots S_n`$ may be regarded as approximately linear; the full
-> quadratic map must be retained for the central interval. One thus obtains
-> $`z_{n+p} \approx L_p (z_n^2 + b (c - c_0))`$
-> where $`L_p = l_2 l_3 \ldots l_p`$ is the product of the map slopes,
-> $`l_n = 2 z_n`$ in $`p-1`$ noncentral intervals and
-> $`b = 1 + l_2^{-1} + (l_2 l_3)^{-1} + ... + L_n^{-1}`$.
-> We take $`L_n`$ at $`c = c_0`$ and treat it as a constant in narrow window.
-> Introducing $`Z = L_n z`$ and $`C = b L_n^2 (c - c_0)`$ we get quadratic map
-> $`Z_{n+p} = Z_n^2 + C`$.
-> Therefore the window width scales like $`(b L_n^2)^{-1}`$. 
+> Under iterations the critical orbit of period $p$ consecutively cycles through $p$ narrow intervals $S_1 \to S_2 \to \ldots \to S_1$ each of width $s_j$ (we choose $S_1$ to include the critical point $z = 0$).
+> We expand $F^p(z, c)$ for small $z$ (in the narrow central interval $S_1$) and $c$ near its value $c_0$ at superstability of period-$p$ attracting orbit. 
+> We see that the $`s_j`$ are small and the map in the intervals $S_2, S_3, \ldots S_n$ may be regarded as approximately linear; the full quadratic map must be retained for the central interval. 
+> One thus obtains $z_{n+p} \approx L_p (z_n^2 + b (c - c_0))$ where $L_p = l_2 l_3 \ldots l_p$ is the product of the map slopes,  $l_n = 2 z_n$ in $p-1$ noncentral intervals and  $b = 1 + l_2^{-1} + (l_2 l_3)^{-1} + ... + L_n^{-1}$.
+> We take $L_n$ at $c = c_0$ and treat it as a constant in narrow window. Introducing $Z = L_n z$ and $C = b L_n^2 (c - c_0)$ we get quadratic map  $Z_{n+p} = Z_n^2 + C$. Therefore the window width scales like $(b L_n^2)^{-1}$. 
 
-#### C99 Code
+C99 Code
 
 ```c
 #include <complex.h>
@@ -1206,8 +1190,7 @@ $$F^p(0,r)=\lambda R e^{2 \pi i \theta}$$
 where $\lambda < 1$ controls the sharpness of the ray. Applying 
 Newton's method in one complex variable:
 
-$$r_{m+1} = r_m - \frac{F^p(0,r_m) - \lambda R e^{2 \pi i \theta}}
-                       {\frac{\partial}{\partial c}F^p(0,r_m)}$$
+$$r_{m+1} = r_m - \frac{F^p(0,r_m) - \lambda R e^{2 \pi i \theta}} {\frac{\partial}{\partial c}F^p(0,r_m)}$$
 
 When crossing dwell bands, double $\theta$ and increment $p$, resetting
 the radius $R$.  Stop tracing when close to the target (for example when
