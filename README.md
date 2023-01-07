@@ -1040,7 +1040,7 @@ $s' = \frac{s}{q^2}$
 
 > Under iterations the critical orbit of period $p$ consecutively cycles through $p$ narrow intervals $S_1 \to S_2 \to \ldots \to S_1$ each of width $s_j$ (we choose $S_1$ to include the critical point $z = 0$).
 > We expand $F^p(z, c)$ for small $z$ (in the narrow central interval $S_1$) and $c$ near its value $c_0$ at superstability of period-$p$ attracting orbit. 
-> We see that the $`s_j`$ are small and the map in the intervals $S_2, S_3, \ldots S_n$ may be regarded as approximately linear; the full quadratic map must be retained for the central interval. 
+> We see that the $s_j$ are small and the map in the intervals $S_2, S_3, \ldots S_n$ may be regarded as approximately linear; the full quadratic map must be retained for the central interval. 
 > One thus obtains $z_{n+p} \approx L_p (z_n^2 + b (c - c_0))$ where $L_p = l_2 l_3 \ldots l_p$ is the product of the map slopes,  $l_n = 2 z_n$ in $p-1$ noncentral intervals and  $b = 1 + l_2^{-1} + (l_2 l_3)^{-1} + ... + L_n^{-1}$.
 > We take $L_n$ at $c = c_0$ and treat it as a constant in narrow window. Introducing $Z = L_n z$ and $C = b L_n^2 (c - c_0)$ we get quadratic map  $Z_{n+p} = Z_n^2 + C$. Therefore the window width scales like $(b L_n^2)^{-1}$. 
 
@@ -1282,7 +1282,7 @@ tuning of an external angle $.c$ proceeds by replacing every $0$
 in $c$ by $a$ and every $1$ by $b$.  Here $a$, $b$, $c$ are blocks of
 binary digits (with $c$ possibly aperiodic and infinite in extent).
 
-#### Haskell Code
+Haskell Code
 
 ~~~~ {.haskell}
 type ExternalAngle = ([Bool], [Bool])
@@ -1295,33 +1295,28 @@ tuning (([], per0), ([], per1)) (pre, per)
     t True  = per1
 ~~~~
 
-#### Examples
+Examples
 
 The external angle pair of the period $3$ island is:
-$`\left(.\overline{011}, .\overline{100}\right)`$
+$\left(.\overline{011}, .\overline{100}\right)$
 
-The lower angle of the period $`2`$ bulb is $`.\overline{01}`$, tuned by the
-period $`3`$ island becomes $`.\overline{011100}`$ which is the lower angle of
-the period $`6`$ bulb attached to the period $`3`$ cardioid at internal angle
-$`\frac{1}{2}`$.
+The lower angle of the period $2$ bulb is $.\overline{01}$, tuned by the period $3$ island becomes $.\overline{011100}$ which is the lower angle of the period $6$ bulb attached to the period $3$ cardioid at internal angle
+$\frac{1}{2}$.
 
-The external angle of the tip of the antenna is
-$`.1 = .0\overline{1} = .1\overline{0}`$, tuned by the period $`3`$ island
-becomes respectively $`.011\overline{100}`$ and $`.100\overline{011}`$, which
-are the external angles of the tip of the antenna of the period $`3`$ island.
+The external angle of the tip of the antenna is $.1 = .0\overline{1} = .1\overline{0}$, tuned by the period $3$ island becomes respectively $.011\overline{100}$ and $.100\overline{011}$, which are the external angles of the tip of the antenna of the period $3$ island.
 
 ### Primary Bulb
 
 The child bulb of the period $1$ cardioid at internal angle $`\frac{p}{q}`$
 has external angles:
 
-$`(.\overline{b_0 b_1 \ldots b_{q-3} 0 1}, .\overline{b_0 b_1 \ldots b_{q-3} 1 0})`$
+$(.\overline{b_0 b_1 \ldots b_{q-3} 0 1}, .\overline{b_0 b_1 \ldots b_{q-3} 1 0})$
 
 where
 
-$`b_0 b_1 \ldots = \operatorname{map} \left(\in \left(1 - \frac{p}{q}, 1\right)\right) \circ \operatorname{iterate} \left(+\frac{p}{q}\right) $ \frac{p}{q}`$
+$b_0 b_1 \ldots = \operatorname{map} \left(\in \left(1 - \frac{p}{q}, 1\right)\right) \circ \operatorname{iterate} \left(+\frac{p}{q}\right) $ \frac{p}{q}$
 
-#### Haskell Code
+Haskell Code
 
 ~~~~ {.haskell}
 import Data.Fixed (mod')
@@ -1342,22 +1337,20 @@ primaryBulb pq = (([], bs ++ [False, True]), ([], bs ++ [True, False]))
       $ pq
 ~~~~
 
-#### Examples
+Examples
 
-Consider the bulb at internal angle $`\frac{p}{q} = \frac{2}{5}`$:
-```
-\begin{aligned}
-r_0 = \frac{2}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_0 = 0 \\
-r_1 = \frac{4}{5} &    \in \left(1 - \frac{2}{5},1\right) &\therefore b_1 = 1 \\
-r_2 = \frac{1}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_2 = 0
-\end{aligned}
-```
+Consider the bulb at internal angle $\frac{p}{q} = \frac{2}{5}$:
 
-Therefore the external angles for the $`\frac{2}{5}`$ bulb are:
+$r_0 = \frac{2}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_0 = 0$
+$r_1 = \frac{4}{5} &    \in \left(1 - \frac{2}{5},1\right) &\therefore b_1 = 1$
+$r_2 = \frac{1}{5} &\not\in \left(1 - \frac{2}{5},1\right) &\therefore b_2 = 0$
 
-$`\left( .\overline{01001}, .\overline{01010} \right)`$
 
-### 
+Therefore the external angles for the $\frac{2}{5}$ bulb are:
+
+$\left( .\overline{01001}, .\overline{01010} \right)$
+
+
 
 
 ### Lavaurs' Algorithm
