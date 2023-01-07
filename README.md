@@ -1140,14 +1140,11 @@ Code
 
 ### Domain Size
 
-@CHADomainSize derives the atom domain size estimate for a nucleus $`c`$ of
-period $`p`$ as:
+[atom domain size estimation page](https://mathr.co.uk/blog/2013-12-10_atom_domain_size_estimation.html) derives the atom domain size estimate for a nucleus $c$ of period $p$ as:
 
-$`r = \left|\frac{F^q(0, c)}{\frac{\partial}{\partial c} F^p(0, c)}\right|`$
+$r = \left|\frac{F^q(0, c)}{\frac{\partial}{\partial c} F^p(0, c)}\right|$
 
-where $`1 \le q < p`$ minimizes $`\left|F^q(0, c)\right|`$.  The atom domain size
-is approximately 4 times the radius of circle-like components, and typically a
-lot larger for cardioid-like components.
+where $1 \le q < p$ minimizes $\left|F^q(0, c)\right|$.  The atom domain size is approximately 4 times the radius of circle-like components, and typically a lot larger for cardioid-like components.
 
 #### C99 Code
 
