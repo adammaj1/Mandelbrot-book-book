@@ -24,7 +24,7 @@
 * [Misiurewicz domains](README.md#misiurewicz-domains)
 * [Interior coordinate](README.md#interior-coordinates)
 * [Interior distance](README.md#interior-distance)
-* [mu-atom mapping]()
+* [mu-atom mapping](README.md#mu-atom-mapping)
 
 
 [Numerical algorithms](README.md#numerical-algorithms)
