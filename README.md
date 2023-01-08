@@ -825,7 +825,13 @@ double m_distance(int N, double R, double _Complex c)
 
 
 Code
-* []()
+* [mu-atom.c](./src/mu-atom/mu-atom.c)
+* [m.sh](./src/mu-atom/m.sh)
+* [Makefile](./src/mu-atom/Makefile)
+
+One can run:
+* make ( to make 1-10 png files)
+* ./a.out 1 > 1.ppm ( to make one file)
 
 
 
