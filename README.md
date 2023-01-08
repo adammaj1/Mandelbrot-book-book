@@ -24,6 +24,7 @@
 * [Misiurewicz domains](README.md#misiurewicz-domains)
 * [Interior coordinate](README.md#interior-coordinates)
 * [Interior distance](README.md#interior-distance)
+* [mu-atom mapping]()
 
 
 [Numerical algorithms](README.md#numerical-algorithms)
@@ -808,6 +809,48 @@ double m_distance(int N, double R, double _Complex c)
 }
 ```
 
+
+
+### mu-atom mapping
+
+[mu-atom mapping](https://mathr.co.uk/mandelbrot/mu-atom/): period p hyperbolic components of the Mandelbrot set can each be mapped conformally to the unit disc, by the derivative d/dz of the periodic limit cycle where f_c^p(z_0) = z_0.
+
+![period 1](./images/mu-atom-1.png "")  
+
+![period 2](./images/mu-atom-2.png "")  
+
+![period 3](./images/mu-atom-3.png "")  
+
+![period 4](./images/mu-atom-4.png "")  
+
+
+Code
+* []()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Numerical Algorithms
 
 ### Period
@@ -1146,7 +1189,7 @@ $r = \left|\frac{F^q(0, c)}{\frac{\partial}{\partial c} F^p(0, c)}\right|$
 
 where $1 \le q < p$ minimizes $\left|F^q(0, c)\right|$.  The atom domain size is approximately 4 times the radius of circle-like components, and typically a lot larger for cardioid-like components.
 
-#### C99 Code
+C99 Code
 
 ```c
 #include <complex.h>
@@ -1168,22 +1211,22 @@ double domain_size(double _Complex c, int p)
 }
 ```
 
-#### Examples
+Examples
 
 Circle $c = -1$, $p = 2$:
 
-$$r = 1$$
+$r = 1$
 
 Cardioid $c = -1.7548776662466929$, $p = 3$:
 
-$$r = 0.23448676598793725$$
+$r = 0.23448676598793725$
 
 ### External Ray In
 
 The next point $r$ along an external ray with current doubled angle $\theta$
 measured in turns, current depth $p$ and current radius $R$ satisfies:
 
-$$F^p(0,r)=\lambda R e^{2 \pi i \theta}$$
+$F^p(0,r)=\lambda R e^{2 \pi i \theta}$
  
 where $\lambda < 1$ controls the sharpness of the ray. Applying 
 Newton's method in one complex variable:
@@ -1194,7 +1237,7 @@ When crossing dwell bands, double $\theta$ and increment $p$, resetting
 the radius $R$.  Stop tracing when close to the target (for example when
 within the basin of attraction for Newton's method for nucleus).
 
-#### C99 Code
+C99 Code
 
 ```c
 #include <complex.h>
@@ -1274,10 +1317,8 @@ double _Complex m_exray_in_step(struct m_exray_in *ray, int n)
 
 ### Tuning
 
-Given a periodic external angle pair $(.\overline{a}, .\overline{b})$,
-tuning of an external angle $.c$ proceeds by replacing every $0$
-in $c$ by $a$ and every $1$ by $b$.  Here $a$, $b$, $c$ are blocks of
-binary digits (with $c$ possibly aperiodic and infinite in extent).
+Given a periodic external angle pair $(.\overline{a}, .\overline{b})$, tuning of an external angle $.c$ proceeds by replacing every $0$ in $c$ by $a$ and every $1$ by $b$.  
+Here $a$, $b$, $c$ are blocks of binary digits (with $c$ possibly aperiodic and infinite in extent).
 
 Haskell Code
 
@@ -1304,7 +1345,7 @@ The external angle of the tip of the antenna is $.1 = .0\overline{1} = .1\overli
 
 ### Primary Bulb
 
-The child bulb of the period $1$ cardioid at internal angle $`\frac{p}{q}`$
+The child bulb of the period $1$ cardioid at internal angle $\frac{p}{q}$
 has external angles:
 
 $(.\overline{b_0 b_1 \ldots b_{q-3} 0 1}, .\overline{b_0 b_1 \ldots b_{q-3} 1 0})$
