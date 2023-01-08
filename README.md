@@ -1,8 +1,8 @@
-# TOC
 
-[Description](README.md#description)
+Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 
-[Algorithms](README.md#algorithms)
+
+# Algorithms
 
 [Grapical algorithms](https://en.wikibooks.org/wiki/Fractals#Algorithms) =  methods of drawing/computing = [representation finctions](https://mrob.com/pub/muency/representationfunction.html)
 * [membership](README.md#membership)
@@ -59,8 +59,9 @@
 
 # Description
 
-fork of [mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle](
-https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
+fork of
+* [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen](https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
+* [The Mandelbrot Set by Claude Heiland-Allen](https://mathr.co.uk/web/mandelbrot.html)
 
 ## Compare with
 * [html book draft](https://mathr.co.uk/mandelbrot/book-draft/)
