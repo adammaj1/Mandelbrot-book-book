@@ -57,38 +57,6 @@ Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 
 [Technical notes](README.md#technical-notes)
 
-# Description
-
-fork of
-* [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen](https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
-* [The Mandelbrot Set by Claude Heiland-Allen](https://mathr.co.uk/web/mandelbrot.html)
-
-## Compare with
-* [html book draft](https://mathr.co.uk/mandelbrot/book-draft/)
-* [pdf 2014-04-25 ](https://mathr.co.uk/mandelbrot/book-draft-2014-04-25-web.pdf)
-* [Examples c programs for drawing Mandelbrot set ](https://gitlab.com/adammajewski/mandelbrot_wiki_ACh) as described in [the wiki by A Cheritat](https://www.math.univ-toulouse.fr/~cheritat/wiki-draw/index.php/Mandelbrot_set)
-* [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen ( full repository )](https://code.mathr.co.uk/mandelbrot-book)
-* [clone of mandelbrot-book, use c files not diffs](https://gitlab.com/adammajewski/my-book) and [pdf file](https://gitlab.com/adammajewski/git-book-pdf)
-* [Linas Art Gallery](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
-
-## Programs
-* in c99
-* one file
-* use 
-  * OpenMP library 
-  * complex numbers 
-  * create [pgm or ppm](https://en.wikipedia.org/wiki/Netpbm_format) graphic files using [bash pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix))
-
-
-## converting images
-Programs create pgm/ppm files. To convert to png use Image Magic from console:
-
-```
-  convert *.pgm -geometry 800x800 *.png
-  convert *.ppm -geometry 800x800 *.png
-```
-
-
 
 
 # Algorithms
@@ -1467,7 +1435,46 @@ $\left( .\overline{01001}, .\overline{01010} \right)$
 
 @CHASpiders
 
-## Bibliography
+
+# Description
+
+fork of
+* [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen](https://code.mathr.co.uk/mandelbrot-book/tree/HEAD:/book)
+* [The Mandelbrot Set by Claude Heiland-Allen](https://mathr.co.uk/web/mandelbrot.html)
+
+## Compare with
+* [html book draft](https://mathr.co.uk/mandelbrot/book-draft/)
+* [pdf 2014-04-25 ](https://mathr.co.uk/mandelbrot/book-draft-2014-04-25-web.pdf)
+* [Examples c programs for drawing Mandelbrot set ](https://gitlab.com/adammajewski/mandelbrot_wiki_ACh) as described in [the wiki by A Cheritat](https://www.math.univ-toulouse.fr/~cheritat/wiki-draw/index.php/Mandelbrot_set)
+* [mandelbrot-book: how to write a book about the Mandelbrot set by Claude Heiland-Allen ( full repository )](https://code.mathr.co.uk/mandelbrot-book)
+* [clone of mandelbrot-book, use c files not diffs](https://gitlab.com/adammajewski/my-book) and [pdf file](https://gitlab.com/adammajewski/git-book-pdf)
+* [Linas Art Gallery](https://gitlab.com/adammajewski/LinasArtGallery_MandelbrotSet)
+
+## Programs
+* in c99
+* one file
+* use 
+  * OpenMP library 
+  * complex numbers 
+  * create [pgm or ppm](https://en.wikipedia.org/wiki/Netpbm_format) graphic files using [bash pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix))
+
+
+## converting images
+Programs create pgm/ppm files. To convert to png use Image Magic from console:
+
+```
+  convert *.pgm -geometry 800x800 *.png
+  convert *.ppm -geometry 800x800 *.png
+```
+
+
+
+
+
+
+
+
+# Bibliography
 
 @article{Dolotin2008,
 	author="V. {Dolotin} and A. {Morozov}",
