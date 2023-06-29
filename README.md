@@ -740,20 +740,64 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 ![Interior distance rendering](./images/id.png "Interior distance rendering")
 
-a simple test for interior-hood is:
+a simple test for interior-hood is (this follows directly from the interior distance formula, which gives a non-negative distance if the point is interior):
 
 $\left|\frac{\partial}{\partial{z}}f_c^p(z_0)\right| \le 1$
 
+but one have to know period p and periodic point <math> z_0</math>
 
-(this follows directly from the interior distance formula, which gives a non-negative distance if the point is interior).
 
-The formula for interior distance estimation d is:
+The general formula for interior distance estimation d is:
 
 $d = \frac{1-\left|\frac{\partial}{\partial{z}}f_c^p(z_0) \right|^2}{1}$
+${\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}}f_c^p(z_0)  + \frac{ \frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}} f_c^p(z_0)  \frac{\partial}{\partial{c}} f_c^p(z_0)}
+{1-\frac{\partial}{\partial{z}}}f_c^p(z_0)\right|}$
 
-${\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}}f_c^p(z_0)  + \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right) \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
+* where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$
+* Obtaining z0  by iteration of fc  is impractical, requiring a huge number of iterations, moreover that leaves p  still to be determined. 
 
-where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$.
+
+
+Assuming p  is known, it's possible to find z0  more directly by using Newton's method to solve the equation:
+
+$z_0^{m+1} = z_0^{m} - \frac{f_c^p(z_0^m) - z_0^m}{\frac{\partial}{\partial{z}}f_c^p(z_0^m) - 1}$
+
+
+which can be implemented in C99 like this:
+
+```c
+#include <complex.h>
+
+int attractor
+  ( complex double *z_out
+  , complex double *dz_out
+  , complex double z_in
+  , complex double c
+  , int period
+  ) {
+  double epsilon = 1e-10;
+  complex double zz = z_in;
+  for (int j = 0; j < 64; ++j) {
+    complex double z = zz;
+    complex double dz = 1;
+    for (int i = 0; i < period; ++i) {
+      dz = 2 * z * dz;
+      z = z * z + c;
+    }
+    complex double zz1 = zz - (z  - zz) / (dz - 1);
+    if (cabs(zz1 - zz) < epsilon) {
+      *z_out = z;
+      *dz_out = dz;
+      return 1;
+    }
+    zz = zz1;
+  }
+  return 0;
+}
+
+```
+
+
 
 Following page [Practical interior distance rendering](https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html), simple code for distance estimate rendering now
 looks something as follows; more involved algorithms that provide a significant
@@ -855,6 +899,30 @@ double m_distance(int N, double R, double _Complex c)
   return 0;
 }
 ```
+
+Code
+* [interior-distance.c](./src/interior-distance.c)
+
+There is also test for 3 versions of above algorithm
+* plain: just computes exterior distance estimates with no interior checking
+* unbiased: checks for interior-hood every time a partial is reached. 
+* biased: uses local connectedness properties to postpone interior checking in exterior regions
+
+
+One would think the extra interior checks would slow down the rendering, but unbiased is actually faster than plain for the default view because lots of pixels are interior with low periods, reducing the total number of iterations required (with plain all interior points are iterated up to the maximum iteration limit). 
+However, zooming in to a region with no interior pixels visible shows a different result entirely: the interior checks are all useless, and do indeed slow down the rendering dramatically.
+
+
+The solution is a modified rendering algorithm biased, which uses local connectedness properties to postpone interior checking in exterior regions. We keep track of the outcome of the previous pixel (whether it was interior or exterior) and use that to adjust the calculations - if the previous pixel was interior, perform interior checking as in unbiased, but if the previous pixel was exterior, instead of performing interior checking for each period as it is encountered, store the inputs to the interior checking and carry on. Postponing the expensive interior checks until the maximum iteration count has been reached means that for exterior points that escape before the maximum iteration count has been reached, we don't need to perform the interior checking at all. In the benchmark graphs, biased is blue, and you can see that it improves performance to near that of plain for the exterior-dominated embedded julia set view.
+
+However, there is a flaw - for deep images (close to the resolution of double) where exterior distance estimates have no problems, the interior distance technique can fail in spectacularly ugly fashion:
+
+Extra code from [test page: 2014-11-02_practical_interior_distance_rendering](https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html)
+* [Makefile](./src/practical-interior-distance-rendering/Makefile)
+* [gnuplot.txt](./src/practical-interior-distance-rendering/gnuplot.txt) - gnuplot commands for drawing diagram
+* [mandelbrot.c](./src/practical-interior-distance-rendering/mandelbrot.c)
+* [mandelbrot.sh](./src/practical-interior-distance-rendering/mandelbrot.sh)
+
 
 
 
