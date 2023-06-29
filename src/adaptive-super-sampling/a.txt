@@ -1,0 +1,116 @@
+make
+chmod +x a.sh
+./a.sh
+compile main program 
+display OMP info 
+run the compiled program and make pgm files 
+width = 960	 height = 540	 c = -1.769384+0.004231	 radius = 0.000011	 maxiters = 1000000
+depth = 0	samples per pixel ss = 100.00%
+
+real	0m0.040s
+user	0m0.255s
+sys	0m0.004s
+width = 960	 height = 540	 c = -1.769384+0.004231	 radius = 0.000011	 maxiters = 1000000
+depth = 1	samples per pixel ss = 133.92%
+
+real	0m0.051s
+user	0m0.389s
+sys	0m0.000s
+width = 960	 height = 540	 c = -1.769384+0.004231	 radius = 0.000011	 maxiters = 1000000
+depth = 2	samples per pixel ss = 228.73%
+
+real	0m0.098s
+user	0m0.753s
+sys	0m0.000s
+width = 960	 height = 540	 c = -1.769384+0.004231	 radius = 0.000011	 maxiters = 1000000
+depth = 3	samples per pixel ss = 493.53%
+
+real	0m0.242s
+user	0m1.834s
+sys	0m0.035s
+width = 960	 height = 540	 c = -1.769384+0.004231	 radius = 0.000011	 maxiters = 1000000
+depth = 4	samples per pixel ss = 1233.22%
+
+real	0m0.651s
+user	0m5.125s
+sys	0m0.008s
+width = 960	 height = 540	 c = -1.747370+0.004734	 radius = 0.000000	 maxiters = 1000000
+depth = 0	samples per pixel ss = 100.00%
+
+real	0m1.356s
+user	0m10.558s
+sys	0m0.008s
+width = 960	 height = 540	 c = -1.747370+0.004734	 radius = 0.000000	 maxiters = 1000000
+depth = 1	samples per pixel ss = 431.31%
+
+real	0m6.169s
+user	0m48.661s
+sys	0m0.020s
+width = 960	 height = 540	 c = -1.747370+0.004734	 radius = 0.000000	 maxiters = 1000000
+depth = 2	samples per pixel ss = 1668.51%
+
+real	0m24.772s
+user	3m16.800s
+sys	0m0.056s
+width = 960	 height = 540	 c = -1.747370+0.004734	 radius = 0.000000	 maxiters = 1000000
+depth = 3	samples per pixel ss = 6282.81%
+
+real	1m38.488s
+user	12m51.010s
+sys	0m0.809s
+width = 960	 height = 540	 c = -1.747370+0.004734	 radius = 0.000000	 maxiters = 1000000
+depth = 4	samples per pixel ss = 23465.98%
+
+real	6m20.394s
+user	50m26.529s
+sys	0m0.228s
+change Image Magic settings
+convert all pgm files to png using Image Magic v 6 convert 
+dense-0.pgm
+dense-1.pgm
+dense-2.pgm
+dense-3.pgm
+dense-4.pgm
+sparse-0.pgm
+sparse-1.pgm
+sparse-2.pgm
+sparse-3.pgm
+sparse-4.pgm
+delete all pgm files 
+OK
+info about software 
+GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+GNU Make 4.3
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org
+Copyright: (C) 1999-2021 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC Modules OpenMP(4.5) 
+Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
+Resource limits:
+  Width: 1MP
+  Height: 1MP
+  List length: unlimited
+  Area: 128MP
+  Memory: 256MiB
+  Map: 512MiB
+  Disk: 10GiB
+  File: 768
+  Thread: 8
+  Throttle: 0
+  Time: unlimited
+
