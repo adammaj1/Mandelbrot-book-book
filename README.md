@@ -740,6 +740,8 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 ![Interior distance rendering](./images/id.png "Interior distance rendering")
 
+
+
 The formula for interior distance estimation is:
 
 $d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}{\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} + \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right) \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
@@ -749,6 +751,37 @@ where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$.
 Following page [Practical interior distance rendering](https://mathr.co.uk/blog/2014-11-02_practical_interior_distance_rendering.html), simple code for distance estimate rendering now
 looks something as follows; more involved algorithms that provide a significant
 speed-up can be found at the reference.
+
+
+Pseudo-code for interior distance estimate rendering now looks something like:
+
+```
+dc := 0
+z := 0
+m := infinity
+p := 0
+for (n := 1; n <= maxiters; ++n) {
+  dc := 2 * z * dc + 1
+  z := z^2 + c
+  if (|z| < m) {
+    m := |z|
+    p := n
+    if (attractor(&z0, &dz0, z, c, p)) {
+      if (|dz0| <= 1) {
+        // point is interior with period p and known z0
+        // compute interior distance estimate
+        break
+      }
+    }
+  }
+  if (|z| > R) {
+    // point is exterior
+    // compute exterior distance estimate from z and dc
+    break
+  }
+}
+```
+
 
 C99 Code
 
@@ -761,6 +794,8 @@ double cnorm(double _Complex z)
   return creal(z) * creal(z) + cimag(z) * cimag(z);
 }
 
+
+// Computing the interior distance estimate with known p  and z0 
 double m_interior_distance(double _Complex z0, double _Complex c, int p) {
   double _Complex z = z0;
   double _Complex dz = 1;
@@ -789,6 +824,8 @@ double m_distance(int N, double R, double _Complex c)
     dc = 2 * z * dc + 1;
     z = z * z + c;
     if (cabs(z) > R)
+       // point is exterior
+       // compute exterior distance estimate from z and dc
       return 2 * cabs(z) * log(cabs(z)) / cabs(dc);
     if (cabs(z) < m)
     {
@@ -803,6 +840,8 @@ double m_distance(int N, double R, double _Complex c)
         w = w * w + c;
       }
       if (cabs(dw) <= 1)
+        // point is interior with period p and known z0
+        // compute interior distance estimate 
         return m_interior_distance(z0, c, p);
     }
   }
