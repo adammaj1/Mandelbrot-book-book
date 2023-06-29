@@ -869,22 +869,22 @@ Here are some benchmarks, first for the sparse view:
 
 ```
 depth	samples per pixel	time
-0	100%	0.440s
-1	133.92%	0.664s
-2	228.73%	1.304s
-3	493.53%	3.180s
-4	1233.22%	8.737s
+0	100%			0.440s
+1	133.92%			0.664s
+2	228.73%			1.304s
+3	493.53%			3.180s
+4	1233.22%		8.737s
 ```
 And for the dense view, which only beats plain supersampling at depth 3 or above:
 
 
 ```
 depth	samples per pixel	time
-0	100.00%	17.153s
-1	431.31%	1m18.861s
-2	1668.51%	5m18.520s
-3	6282.81%	20m53.466s
-4	23465.98%	81m35.974s
+0	100.00%			17.153s
+1	431.31%			1m18.861s
+2	1668.51%		5m18.520s
+3	6282.81%		20m53.466s
+4	23465.98%		81m35.974s
 ```
 
 
