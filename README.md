@@ -679,7 +679,7 @@ where
 * $F^0(z,c) = z$
 * $F^{q+1}(z,c) = F^q(F(z,c)^2+c)$
 * $p$ is the period of the target component
-* $b=e^{2 \pi i \theta}$ with the $\theta$ the desired internal angle.  
+* $b$ is interior coordinates: $b=e^{2 \pi i \theta}$ with the $\theta$ the desired internal angle.  
 * the resulting $c$ is the coordinates of the point on the boundary.  
 
 
@@ -692,23 +692,18 @@ It is also possible to invert the algorithm, namely find b  given c, and use b  
 The algorithm I developed works like this:
 * when c is outside the Mandelbrot set, give up now
 * For each period p, starting from 1 and increasing:
-  * Find $z_0$ such that $F^p(z_0,c) = z_0$ using Newton's method in one complex variable
+  * Find $z_0$ such that $F^p(z_0,c) = z_0$ using Newton's method in one complex variable (see ["attractor"](README.md#attractor));
   * Find b by evaluating $\frac{\partial}{\partial z} F^p(z,c)$ at $z_0$
   * If $\left|b\right| \le 1$ then return b, otherwise continue with the next p
 
 
+Algorithm for calculating interior coordinates $b$, and it turned out that only periods that are "partials" (corresponding to atom domains) need be considered:
 
-
-
- derives an algorithm for calculating interior coordinates
-$b$, and it turned out that only periods that are "partials" (corresponding to
-atom domains) need be considered:
-
-For each period p, starting from 1 and increasing:
+* For each period p, starting from 1 and increasing:
 * If |F^p(0, c)| reaches a new minimum:
-* Find $z_0$ such that $F^p(z_0,c)=z_0$ using Newton's method in one complex variable (["attractor"](README.md#attractor));
-* Find $b =dF^p(z_0,c)/dz$
-* If $|b| <= 1$ then return b, otherwise continue with the next p.
+   * Find $z_0$ such that $F^p(z_0,c)=z_0$ using Newton's method in one complex variable (see ["attractor"](README.md#attractor));
+   * Find $b =dF^p(z_0,c)/dz$
+   * If $|b| <= 1$ then return b, otherwise continue with the next p.
 
 C99 Code
 
