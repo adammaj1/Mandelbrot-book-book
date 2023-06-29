@@ -12,7 +12,7 @@ https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/
 
 gcc exterior-distance.c -lm -Wall -fopenmp
 
-./a.out >ed.pgm
+./a.out >ed.ppm   // P6 = binary Portable PixMap see https://en.wikipedia.org/wiki/Netpbm#File_formats
 
 */
 
