@@ -740,9 +740,14 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 ![Interior distance rendering](./images/id.png "Interior distance rendering")
 
+a simple test for interior-hood is:
+
+$\left|\frac{\partial}{\partial{z}}f_c^p(z_0)\right| \le 1$
 
 
-The formula for interior distance estimation is:
+(this follows directly from the interior distance formula, which gives a non-negative distance if the point is interior).
+
+The formula for interior distance estimation d is:
 
 $d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}{\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} + \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right) \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
 
