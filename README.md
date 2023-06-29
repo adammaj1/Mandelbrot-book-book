@@ -675,17 +675,36 @@ $F^p(z,c) = z$
 
 $\frac{\partial}{\partial z} F^p(z,c) = b$
 
+where 
+* $F^0(z,c) = z$
+* $F^{q+1}(z,c) = F^q(F(z,c)^2+c)$
+* $p$ is the period of the target component
+* $b=e^{2 \pi i \theta}$ with the $\theta$ the desired internal angle.  
+* the resulting $c$ is the coordinates of the point on the boundary.  
+
+
+It can also be modified to find points in the interior, simply set 
+
+$b = r e^{2 \pi i \theta}$ with $\left|r\right| \le 1$
+
+It is also possible to invert the algorithm, namely find b  given c, and use b  as polar texture coordinates to place copies of an image inside the Mandelbrot fractal. The answer is yes, and in some sense it's actually easier than the other direction.
+
+The algorithm I developed works like this:
+
+
+
+
 
 
  derives an algorithm for calculating interior coordinates
 $b$, and it turned out that only periods that are "partials" (corresponding to
 atom domains) need be considered:
 
-* For each period p, starting from 1 and increasing:
-  * If |F^p(0, c)| reaches a new minimum:
-    * Find z_0 such that F^p(z_0,c)=z_0 using Newton's method in one complex variable (["attractor"](#attractor));
-    * Find b =dF^p(z_0,c)/dz
-    * If |b| <= 1 then return b, otherwise continue with the next p.
+For each period p, starting from 1 and increasing:
+* If |F^p(0, c)| reaches a new minimum:
+* Find $z_0$ such that $F^p(z_0,c)=z_0$ using Newton's method in one complex variable (["attractor"](README.md#attractor));
+* Find $b =dF^p(z_0,c)/dz$
+* If $|b| <= 1$ then return b, otherwise continue with the next p.
 
 C99 Code
 
