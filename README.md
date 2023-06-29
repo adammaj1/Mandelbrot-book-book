@@ -749,7 +749,7 @@ but one have to know period p and periodic point <math> z_0</math>
 
 The general formula for interior distance estimation d is:
 
-$d = \frac{1-\left|\frac{\partial}{\partial{z}}f_c^p(z_0) \right|^2}{1}{\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}}f_c^p(z_0)  + \frac{ \frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}} f_c^p(z_0)  \frac{\partial}{\partial{c}} f_c^p(z_0)}{1-\frac{\partial}{\partial{z}}}f_c^p(z_0)\right|}$
+$d = \frac{1-\left|\frac{\partial}{\partial{z}}f_c^p(z_0) \right|^2}{\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}}f_c^p(z_0)  + \frac{ \frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}} f_c^p(z_0)  \frac{\partial}{\partial{c}} f_c^p(z_0)}{1-\frac{\partial}{\partial{z}}}f_c^p(z_0)\right|}$
 
 * where the derivatives are evaluated at $z_0$ satisfying $F^p(z_0, c) = z_0$
 * Obtaining z0  by iteration of fc  is impractical, requiring a huge number of iterations, moreover that leaves p  still to be determined. 
