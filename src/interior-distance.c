@@ -40,6 +40,13 @@ double m_interior_distance(double _Complex z0, double _Complex c, int p) {
   return (1 - cnorm(dz)) / cabs(dcdz + dzdz * dc / (1 - dz));
 }
 
+
+// find periodic point w = z using Newtom method
+// n = number of Newton method steps
+// p = period
+// c = point of parameter  plane, and also parameter of fc = 2^2 + c function
+// w0 reasonable starting guess for Newton's methods
+// output : w = attractor = periodic point 
 double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
 {
   double _Complex w = w0;
@@ -57,6 +64,10 @@ double _Complex m_attractor(double _Complex w0, double _Complex c, int p, int n)
   return w;
 }
 
+// compute distance estimation 
+// R = escape radius = bailout valued
+// N = iMax = maximal number of iteration
+// c = point of parameter  plane, and also parameter of fc = 2^2 + c function
 double m_distance(int N, double R, double _Complex c)
 {
   double _Complex dc = 0;
@@ -65,9 +76,11 @@ double m_distance(int N, double R, double _Complex c)
   int p = 0;
   for (int n = 1; n <= N; ++n)
   {
-    dc = 2 * z * dc + 1;
-    z = z * z + c;
+    dc = 2 * z * dc + 1; // derivative 
+     z = z * z + c; // fc
     if (cabs(z) > R)
+    	// point is exterior = escapes
+      // compute exterior distance estimate from z and dc
       return 2 * cabs(z) * log(cabs(z)) / cabs(dc);
     if (cabs(z) < m)
     {
@@ -82,6 +95,8 @@ double m_distance(int N, double R, double _Complex c)
         w = w * w + c;
       }
       if (cabs(dw) <= 1)
+      	// point is interior with period p and known z0
+        // compute interior distance estimate
         return m_interior_distance(z0, c, p);
     }
   }
@@ -93,10 +108,10 @@ int main()
   int aa = 4;
   int w = 800 * aa;
   int h = 800 * aa;
-  int n = 1024;
-  double r = 2;
-  double px = r / (h/2);
-  double r2 = 25 * 25;
+  int n = 1024; // number of iterations 
+  double r = 2; // plane radius
+  double px = r / (h/2); // px_spacing is the width of the image (in real coordinates) divided by the number of pixels in a row
+  double r2 = 25 * 25; // ER* ER = square of escape radius
   unsigned char *img = malloc(w * h);
   #pragma omp parallel for schedule(static, 1)
   for (int j = 0; j < h; ++j)

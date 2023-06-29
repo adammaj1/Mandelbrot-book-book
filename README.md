@@ -31,7 +31,7 @@ Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 [Numerical algorithms](README.md#numerical-algorithms)
 * [Period](README.md#period)
 * [Nucleus](README.md#nucleus)
-* [Attractot](README.md#attractor)
+* [Attractor](README.md#attractor)
 * [Interior point](README.md#interior-point)
 * [Misiurewicz point](README.md#misiurewicz-point)
 * [Child sizes](README.md#child-sizes)
@@ -901,7 +901,7 @@ double m_distance(int N, double R, double _Complex c)
 ```
 
 Code
-* [interior-distance.c](./src/interior-distance.c)
+* [interior-distance.c](./src/interior-distance.c) it uses both exterior ( DEM) and interior distance estimation  method (IDM) 
 
 There is also test for 3 versions of above algorithm
 * plain: just computes exterior distance estimates with no interior checking
