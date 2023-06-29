@@ -749,7 +749,7 @@ $\left|\frac{\partial}{\partial{z}}f_c^p(z_0)\right| \le 1$
 
 The formula for interior distance estimation d is:
 
-$d = \frac{1-\left|\frac{\partial}{\partial{z}}\right|^2}{1}$
+$d = \frac{1-\left|\frac{\partial}{\partial{z}}f_c^p(z_0) \right|^2}{1}$
 
 ${\left|\frac{\partial}{\partial{c}}\frac{\partial}{\partial{z}} + \frac{\left(\frac{\partial}{\partial{z}}\frac{\partial}{\partial{z}}\right) \left(\frac{\partial}{\partial{c}}\right)} {1-\frac{\partial}{\partial{z}}}\right|}$
 
