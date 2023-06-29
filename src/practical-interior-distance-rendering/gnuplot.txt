@@ -1,0 +1,13 @@
+unset key
+set ylabel "seconds"
+set xlabel "algorithm"
+set term png font "LMSans10,12" size 1024,1024
+set output "full.png"
+set title "full view"
+plot "./full.dat" using 0:1:(0.5):(column(0)+1):xtic(2) with boxes fs solid lc variable
+set output "ejs.png"
+set title "embedded julia set view"
+plot "./ejs.dat" using 0:1:(0.5):(column(0)+1):xtic(2) with boxes fs solid lc variable
+set output "mini.png"
+set title "minibrot view"
+plot [x=-0.5:2.5] [y=0:50] "./mini.dat" using 0:1:(0.5):(column(0)+1):xtic(2) with boxes fs solid lc variable
