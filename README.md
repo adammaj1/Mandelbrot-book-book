@@ -25,7 +25,7 @@ Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 * [Interior coordinate](README.md#interior-coordinates)
 * [Interior distance](README.md#interior-distance)
 * [mu-atom mapping](README.md#mu-atom-mapping)
-* [adaptive supersampling](README.md#adaptive-supersampling)
+* [adaptive supersampling](README.md#adaptive-super-sampling)
 
 
 [Numerical algorithms](README.md#numerical-algorithms)
