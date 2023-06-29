@@ -692,9 +692,9 @@ It is also possible to invert the algorithm, namely find b  given c, and use b  
 The algorithm I developed works like this:
 * when c is outside the Mandelbrot set, give up now
 * For each period p, starting from 1 and increasing:
- * Find $z_0$ such that $F^p(z_0,c) = z_0$ using Newton's method in one complex variable
- * Find b by evaluating $\frac{\partial}{\partial z} F^p(z,c)$ at $z_0$
- * If $\left|b\right| \le 1$ then return b, otherwise continue with the next p
+  * Find $z_0$ such that $F^p(z_0,c) = z_0$ using Newton's method in one complex variable
+  * Find b by evaluating $\frac{\partial}{\partial z} F^p(z,c)$ at $z_0$
+  * If $\left|b\right| \le 1$ then return b, otherwise continue with the next p
 
 
 
