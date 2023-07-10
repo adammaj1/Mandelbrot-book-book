@@ -96,7 +96,7 @@ bool m_membership(int N, double R, double _Complex c)
 ```
 
 Code: 
-* [memebership.c](./src/membership.c)
+* [membership.c](./src/membership.c)
 
 
 ### Escape Time
@@ -639,7 +639,7 @@ $\left|z_{p + q} - z_q\right|$ is minimized.  Misiurewicz domains surround
 Misiurewicz points whose period divides $p$, and are much larger than a single
 point, which makes makes them useful for finding Misiurewicz points.
 
-C99 Code
+[C99 Code = misiurewicz-domains.c](./src/misiurewicz-domains.c)
 
 ```c
 #include <complex.h>
@@ -714,7 +714,7 @@ Algorithm for calculating interior coordinates $b$, and it turned out that only 
    * Find $b =dF^p(z_0,c)/dz$
    * If $|b| <= 1$ then return b, otherwise continue with the next p.
 
-C99 Code
+[C99 Code = interior-coordinates.c](./src/interior-coordinates.c)
 
 ```c
 #include <complex.h>
