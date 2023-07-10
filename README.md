@@ -1279,8 +1279,7 @@ w_2 = -0.24999999999999989 + 0.43301270189221935 i b_2 = -0.12499999999999978 + 
 
 ### Misiurewicz Point
 
-@CHAPreBasins
-@CHAMisiurewiczNewton
+
 
 ### Child Sizes
 
@@ -1526,8 +1525,6 @@ double _Complex m_exray_in_step(struct m_exray_in *ray, int n)
 
 ### External Angles
 
-@CHAAutoAngles
-
 ## Symbolic Algorithms
 
 ### Tuning
@@ -1608,8 +1605,6 @@ $\left( .\overline{01001}, .\overline{01010} \right)$
 
 ### Lavaurs' Algorithm
 
-@CHALavaurs
-@CHAAbstractTree
 
 ### Primary Hub
 
@@ -1617,20 +1612,16 @@ $\left( .\overline{01001}, .\overline{01010} \right)$
 
 ### Spoke Navigation
 
-@CHANavSpokes
 
 ### Islands in Hairs
 
-@CHAPerPatterns
-@CHAHairIslands
 
 ### Hair Navigation
 
-@CHANavHairs
 
 ### Other Angles
 
-@CHAMisiurewiczAngles
+
 
 ## Further Algorithms
 
@@ -1638,42 +1629,23 @@ $\left( .\overline{01001}, .\overline{01010} \right)$
 
 ### Glitch Correction
 
-@CHAGlitches
 
 ### Series Approximation
 
-@CHASeriesApprox
-@CHACodeGen
-
-
-
-
-
-
-
 ### Exponential Map
 
-@CHAExpoMap
-@CHAExpoMapKF
 
 ### Moebius Warp
 
-@CHAStretching
+
 
 ### Julia Morphing
 
-@CHATwoSpirals
-@CHAAutoMorph
-@CHAMorphSym
 
 ### Buddhabrot
 
-@CHAAntiBuddha
-@CHAVectorBuddha
 
 ### Spider Algorithm
-
-@CHASpiders
 
 
 # Description
@@ -1706,12 +1678,6 @@ Programs create pgm/ppm files. To convert to png use Image Magic from console:
   convert *.pgm -geometry 800x800 *.png
   convert *.ppm -geometry 800x800 *.png
 ```
-
-
-
-
-
-
 
 
 # Bibliography
