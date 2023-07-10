@@ -2,9 +2,16 @@
 Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 
 
-# Algorithms
 
-[Grapical algorithms](https://en.wikibooks.org/wiki/Fractals#Algorithms) =  methods of drawing/computing = [representation finctions](https://mrob.com/pub/muency/representationfunction.html)
+TOC
+* [Grapical algorithms](https://en.wikibooks.org/wiki/Fractals#Algorithms) =  methods of drawing/computing = [representation finctions](https://mrob.com/pub/muency/representationfunction.html) = coloring algorithms ( for all points of the choosen part of the plane)
+* [Numerical algorithms](README.md#numerical-algorithms) - how to compute points, curves ( = set of points) or numerical features ( like period) using numerical methods
+* [Symbolic algorithms](README.md#symbolic-algorithms) - how to compute features using symbolic methods
+* [Technical notes](README.md#technical-notes)
+
+
+# Algorithms
+[Grapical algorithms](https://en.wikibooks.org/wiki/Fractals#Algorithms) =  methods of drawing/computing = [representation finctions](https://mrob.com/pub/muency/representationfunction.html) = coloring algorithms ( for all points of the choosen part of the plane)
 * [membership](README.md#membership)
 * [Escape Time](README.md#escape-time)
 * [Binary Decomposition](README.md#binary-decomposition)
@@ -28,7 +35,7 @@ Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 * [adaptive supersampling](README.md#adaptive-super-sampling)
 
 
-[Numerical algorithms](README.md#numerical-algorithms)
+[Numerical algorithms](README.md#numerical-algorithms) - how to compute points, curves ( = set of points) or numerical features ( like period) using numerical methods
 * [Period](README.md#period)
 * [Nucleus](README.md#nucleus)
 * [Attractor](README.md#attractor)
@@ -41,20 +48,13 @@ Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
 * [External ray in](README.md#external-ray-in)
 * [External ray out](README.md#external-ray-out)
 
-[Symbolic algorithms](README.md#symbolic-algorithms)
+[Symbolic algorithms](README.md#symbolic-algorithms) - how to compute features using symbolic methods
 * [Tuning](README.md#tuning)
 * [Primary bulb](README.md#primary-bulb)
 * [The Farey tree](README.md#the-farey-tree)
 * [Lavaurs` algorithm](README.md#lavaurs-algorithm)
 * [Primaty hub](README.md#primary-hub)
 * [Primary tip](README.md#primary-tip)
-* []()
-
-
-[Futher algorithms](README.md#futher-algorithms)
-* []()
-
-[Bibliography](README.md#bibliography)
 
 [Technical notes](README.md#technical-notes)
 
@@ -95,6 +95,10 @@ bool m_membership(int N, double R, double _Complex c)
 }
 ```
 
+Code: 
+* [memebership.c](./src/membership.c)
+
+
 ### Escape Time
 
 ![Escape time rendering](./images/et.png "Escape time rendering")
@@ -127,6 +131,9 @@ int m_escape_time(int N, double R, double _Complex c)
 }
 ```
 
+Code: 
+* [escape-time.c](./src/escape-time.c)
+
 ### Binary Decomposition
 
 [Binary decomposition of the Mandelbrot set exterior](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/MandelbrotSetExterior#Binary_decomposition_of_LSM/M)
@@ -137,7 +144,7 @@ int m_escape_time(int N, double R, double _Complex c)
 Colour according to the sign of Im(z) (the first escaped iterate). Increasing escape radius is necessary to align edges between layers. Escape radius around ER = 25  makes the decomposed cells roughly square.
 
 
-[C99 Code](./src/binary-decomposition.c)
+[C99 Code = binary-decomposition.c](./src/binary-decomposition.c)
 
 color of the pixel depends on:
 * the sign of the imaginary part of final z ( cimag(z) )
@@ -160,7 +167,7 @@ External rays of angles (measured in turns) $angle = \frac{k}{2^n}  \text{mod 1}
 
 ![field-lines.png](./images/field-lines.png)
 
-[C99 Code](./src/field-lines.c)
+[C99 Code = field-lines.c](./src/field-lines.c)
 
 
 color of the pixel depends on the position of final z 
@@ -206,6 +213,8 @@ double m_continuous_dwell(int N, double R, double _Complex c)
   return -1;
 }
 ```
+
+[C99 Code = continuous-dwell.c](./src/continuous-dwell.c)
 
 
 ### Final angle
@@ -1069,7 +1078,12 @@ The nucleus $c$ of a hyperbolic component of period $p$ satisfies:
 
 $F^p(0,c) = 0$
 
-Applying Newton's method in one complex variable:
+Synonims
+* center of hyperbolic component of Mandelbrot set
+* [Nucleus of a Mu-Atom](http://mrob.com/pub/muency/nucleus.html)
+
+
+Applying [Newton's method in one complex variable](https://en.wikibooks.org/wiki/Fractals/Mathematics/Newton_method#center):
 
 $c_{m+1} = c_m - \frac{F^p(0, c_m)}{\frac{\partial}{\partial c}F^p(0, c_m)}$
 
