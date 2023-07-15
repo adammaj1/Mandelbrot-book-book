@@ -1692,7 +1692,9 @@ Programs create pgm/ppm files. To convert to png use Image Magic from console:
 * [Zoom Interpolation](https://mathr.co.uk/blog/2010-08-31_optimizing_zoom_animations.html)
 * [The Farey Tree: Finding parents in the Farey tree by Claude Heiland-Allen](https://mathr.co.uk/blog/2016-10-31_finding_parents_in_the_farey_tree.html)
 
+# Star History
 
+[![Star History Chart](https://api.star-history.com/svg?repos=adammaj1/Mandelbrot-book-book&type=Date)](https://star-history.com/#adammaj1/Mandelbrot-book-book&Date)
 
 
 # Git
