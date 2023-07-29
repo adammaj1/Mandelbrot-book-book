@@ -66,7 +66,7 @@ TOC
 
 ### Membership
 
-![Membership rendering](./images/m.png "Membership rendering")
+![Membership rendering](./images/membership.png "Membership rendering")
 
 Colour according to whether the iterations diverge to infinity or not, within a
 fixed maximum number of iterations N and escape radius R
