@@ -96,7 +96,8 @@ bool m_membership(int N, double R, double _Complex c)
 ```
 
 Code: 
-* [membership.c](./src/membership.c)
+* [membership_old.c](./src/membership_old.c) almost original code, 
+* [membership_new.c](./src/membership_new.c), new code, different method for computing 
 
 
 ### Escape Time
