@@ -1,23 +1,28 @@
-#include <complex.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <omp.h> //OpenM
-
 /*
 fork of 
 mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-Alle
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/
 
 
-gcc interior-distance.c -lm -Wall -fopenmp
+gcc interior-distance.c -lm -Wall -Wextra -fopenmp
 
-./a.out > id.pgm
+./a.out > interior-distance.pgm
 
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <complex.h>
+#include <omp.h> //OpenM
+
+
 const double pi = 3.141592653589793;
 
+
+
+
+// fast abs(complex number)
  double cnorm(double _Complex z)
 {
   return creal(z) * creal(z) + cimag(z) * cimag(z);
@@ -103,31 +108,57 @@ double m_distance(int N, double R, double _Complex c)
   return 0;
 }
 
+
 int main()
-{
-  int aa = 4;
-  int w = 800 * aa;
-  int h = 800 * aa;
-  int n = 1024; // number of iterations 
-  double r = 2; // plane radius
-  double px = r / (h/2); // px_spacing is the width of the image (in real coordinates) divided by the number of pixels in a row
-  double r2 = 25 * 25; // ER* ER = square of escape radius
-  unsigned char *img = malloc(w * h);
-  #pragma omp parallel for schedule(static, 1)
-  for (int j = 0; j < h; ++j)
-  {
-    double y = (h/2 - (j + 0.5)) / (h/2) * r;
-    for (int i = 0; i < w; ++i)
-    {
-      double x = (i + 0.5 - w/2) / (h/2) * r;
-      double _Complex c = x + I * y;
-      double de = m_distance(n, r2, c);
-      double g = tanh(de / px / aa);
-      img[j * w + i] = 255 * g;
-    }
-  }
-  printf("P5\n%d %d\n255\n", w, h);
-  fwrite(img, w * h, 1, stdout);
-  free(img);
-  return 0;
+{	
+	double aspect_ratio = 1.0; // https://en.wikipedia.org/wiki/Aspect_ratio_(image)
+	
+	// integer coordinate ( pixel or screen or image coordinate)
+	int width =  1200;
+	int height = 1200;
+	
+	// double coordinate ( real world)
+	double plane_radius = 2;
+	double plane_center = -0.5;
+	
+	double cxMin = creal(plane_center) - plane_radius*aspect_ratio;	
+	double cxMax = creal(plane_center) + plane_radius*aspect_ratio;	//
+	double cyMin = cimag(plane_center) - plane_radius;	// inv
+	double cyMax = cimag(plane_center) + plane_radius;	//
+	double PixelWidth = (cxMax - cxMin)/width;
+	double PixelHeight = (cyMax - cyMin)/height; // pixel_size = PixelWidth = PixelHeight
+	
+		
+	int kMax = 1024; // maximal number of iterations
+	double escape_radius = 2;
+	double escape_radius_2 = escape_radius * escape_radius;
+  
+	unsigned char *img = malloc(width * height); // image = dynamic array of colors
+	
+	
+	#pragma omp parallel for
+	for (int j = 0; j < height; ++j)
+	{
+		//double y = (height/2 - (j + 0.5)) / (height/2) * plane_radius;
+		double y =  cyMin + j*PixelHeight; /* mapping from screen to world; reverse Y  axis */
+		for (int i = 0; i < width; ++i)
+		{
+			// double x = plane_center + (i + 0.5 - width/2) / (height/2) * plane_radius;
+			double x = cxMin + i*PixelWidth;
+			double _Complex c = x + I * y; // parameter c of  fc(z) = z^2 + c
+			
+			double de = m_distance(kMax, escape_radius_2, c);
+      			double g = tanh(de / PixelWidth );
+      			img[j * width + i] = 255 * g;   // compute and save color to array
+		}
+	}
+	
+	
+	// create pgm file using command redirection https://en.wikipedia.org/wiki/Redirection_(computing)
+	printf("P5\n%d %d\n255\n", width, height); // header of P5 = binary pgm 
+	fwrite(img, width * height, 1, stdout);
+	free(img);
+	return 0;
+
+
 }
