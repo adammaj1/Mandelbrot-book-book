@@ -4,9 +4,9 @@ mandelbrot-book	how to write a book about the Mandelbrot set by Claude Heiland-A
 https://code.mathr.co.uk/mandelbrot-book/blob/HEAD:/book/
 
 
-gcc interior-distance.c -lm -Wall -Wextra -fopenmp
+gcc i.c -lm -Wall -Wextra -fopenmp
 
-./a.out > interior-distance.pgm
+./a.out > id.pgm
 
 */
 
@@ -87,6 +87,8 @@ double m_distance(int N, double R, double _Complex c)
     	// point is exterior = escapes
       // compute exterior distance estimate from z and dc
       return 2 * cabs(z) * log(cabs(z)) / cabs(dc);
+      
+      
     if (cabs(z) < m)
     {
       m = cabs(z);
@@ -131,7 +133,7 @@ int main()
 		
 	int kMax = 1024; // maximal number of iterations
 	double escape_radius = 2;
-	double escape_radius_2 = escape_radius * escape_radius;
+	//double escape_radius_2 = escape_radius * escape_radius;
   
 	unsigned char *img = malloc(width * height); // image = dynamic array of colors
 	
@@ -147,7 +149,7 @@ int main()
 			double x = cxMin + i*PixelWidth;
 			double _Complex c = x + I * y; // parameter c of  fc(z) = z^2 + c
 			
-			double de = m_distance(kMax, escape_radius_2, c);
+			double de = m_distance(kMax, escape_radius, c);
       			double g = tanh(de / PixelWidth );
       			img[j * width + i] = 255 * g;   // compute and save color to array
 		}
