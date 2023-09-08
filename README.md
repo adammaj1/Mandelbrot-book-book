@@ -100,6 +100,17 @@ Code:
 * [membership_new.c](./src/membership_new.c), new code, different method for computing 
 
 
+names and abreviations
+* Escape Time Algorithm (ETA)
+* [Boolean/binary Escape Time Method ( bETM/M )](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/MandelbrotSetExterior) 
+* [Dwell](https://mrob.com/pub/muency/dwell.html) is a colloquial name for the Representation Function called [Escape-Iterations](https://mrob.com/pub/muency/escapeiterations.html)
+
+
+See also
+* 
+
+
+
 ### Escape Time
 
 ![Escape time rendering](./images/et.png "Escape time rendering")
@@ -510,7 +521,7 @@ Given c outside the Mandelbrot set, the exterior distance estimate satisfies by
 d = 2*abs(z)*log|z|/|dz|  
 ```
 
-where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/demm)   
+where dz is [first derivative of zn with respect to c](https://en.wikibooks.org/wiki/Fractals/Mathematics/Derivative#First_derivative_wrt_c)   
 
 
 
@@ -748,7 +759,7 @@ double _Complex m_interior_coordinates(int N, int M, double _Complex c)
 
 ### Interior Distance
 
-![Interior distance rendering](./images/id.png "Interior distance rendering")
+![Interior distance rendering](./images/interior-distance.png "Interior distance rendering")
 
 a simple test for interior-hood is (this follows directly from the interior distance formula, which gives a non-negative distance if the point is interior):
 
@@ -1281,6 +1292,20 @@ w_2 = -0.24999999999999989 + 0.43301270189221935 i b_2 = -0.12499999999999978 + 
 ### Misiurewicz Point
 
 
+A preperiodic Misiurewicz point c of [preperiod (of critical point)](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/misiurewicz#preperiod_and_period) q  and period p  = M_{q,p} satisfies:
+
+$F^{q+p}(0,c) = F^q(0,c)$
+
+
+
+
+
+description
+* [naive](https://mathr.co.uk/web/m-misiurewicz-naive.html)
+* [full](https://mathr.co.uk/web/m-misiurewicz-full.html)
+
+code: [misiurewicz-point.c](./src/misiurewicz-point.c)
+
 
 ### Child Sizes
 
@@ -1767,6 +1792,7 @@ gitt mv ./src/Makefile ./src/modified/bash/
 * [md cheat sheet](http://mdcheatsheet.com/)
 * [CommonMark Spec](https://spec.commonmark.org)
 * [Markdown parser ](https://markdown-it.github.io/)
+* [setting-up-and-managing-your-github-profile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile)
 
 
 Math equation inside README.md
