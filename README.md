@@ -1,6 +1,13 @@
 
-Algorithms related with Mandelbrot set implemented in C by Claude Heiland-Allen
+Algorithms related with Mandelbrot set based on []the programs implemented in C by Claude Heiland-Allen](https://code.mathr.co.uk/mandelbrot-book). 
 
+Programs are [minimal, complete and verifiable examples" (MCVE)](https://stackoverflow.com/help/minimal-reproducible-example)
+* independent
+* 1-file
+* short
+* educational ( speed is not a main target)
+* console ( without GUI)
+* written in C programing language
 
 
 TOC
